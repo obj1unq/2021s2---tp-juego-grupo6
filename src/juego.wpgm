@@ -9,5 +9,6 @@ program juego {
 	game.height(10)
 	game.width(10)
 	game.boardGround("fondo.jpg")
+	game.showAttributes(personajePrincipal)
 	game.start()
 }

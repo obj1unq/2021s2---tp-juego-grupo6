@@ -1,12 +1,31 @@
 import wollok.game.*
+import extras.*
 
 object personajePrincipal {
     var property position = game.origin()
     var property vitalidad = 100
-    var direccion = derecha
+    var property estado = "normal"
+    var property direccion = derecha
+    
+    
+    method chocoConElZombie() {
+    	return self.estaEnLaMismaPosicion(zombie)
+    }
+    
+    method chocoConElFantasma() {
+    	return self.estaEnLaMismaPosicion(fantasma)
+    }
+    
+    method estaEnLaMismaPosicion(algo) {
+		return position == algo.position()
+	}
+    
+    method restarVida(cantidad) {
+    	vitalidad -= cantidad
+    }
     
 	method image() {
-	return "personajePrincipal.png"
+		return "personajePrincipal.png"
 	}
 	
 	method mover(_direccion){	
