@@ -1,5 +1,6 @@
 import wollok.game.*
 import extras.*
+import.niveles.*
 
 object personajePrincipal {
     var property position = game.origin()
@@ -36,6 +37,34 @@ object personajePrincipal {
 	method irA(nuevaPosicion){
 		position = nuevaPosicion
 	}
+	
+	method ganar() {
+		self.terminar()
+	}
+	
+	method perder() {
+		self.terminar()
+	}
+	
+	method estaEnLaMeta() {
+		self.estaEnLaMismaPosicion(meta)
+		self.ganar()
+	}
+	
+	method finDelJuego() {
+		self.estaMuerto() or letrero.seAcaboElTiempo()
+		self.perder()
+	}
+	
+	method estaMuerto() = vitalidad == 0
+	
+	method terminar() {
+		cartel.text("REINICIAR [espacio]")
+		cartel.text("SALIR [enter]")
+		//game.removeTickEvent("nombreDelTick")
+		keyboard.enter().onPressDo({game.stop()})
+		keyboard.space().onPressDo({game.start()})
+	}
 }
 
 object derecha {
@@ -64,4 +93,26 @@ object izquierda{
 		return posicion.left(1)
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+	object cartel {
+	var property position = game.at(5,5)
+	var property text = ""
+	method textColor() { 
+		return "ff0000ff"
+	}
+}
+	
+
 
