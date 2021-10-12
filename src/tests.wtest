@@ -1,6 +1,18 @@
+import personajePrincipal.*
+import extras.*
+import wollok.game.* 
 
-test "testX" {
+describe "Colisiones"{
 
-	assert.that(true)
+		test "Colision con Fantasma" {
+		
+		fantasma.chocarCon(personajePrincipal)
+		assert.equals(50 , personajePrincipal.vitalidad())
+	}
+	
+		test "Colision con Zombie" {
 
+		zombie.chocarCon(personajePrincipal)
+		assert.equals(95 , personajePrincipal.vitalidad()) // ver por qué vitalidad = 100
+	}
 }
