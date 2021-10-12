@@ -1,6 +1,6 @@
 import wollok.game.*
 import extras.*
-import.niveles.*
+import niveles.*
 
 object personajePrincipal {
     var property position = game.origin()

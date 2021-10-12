@@ -1,5 +1,6 @@
 import pepita.*
 import wollok.game.*
+import niveles.*
 
 object fantasma {
 	var property position = game.at(2,3)
@@ -11,6 +12,12 @@ object fantasma {
 		personaje.restarVida(50)
 	}
 	
+	method movete(){
+      if(position.x() < game.width() - 1){
+      	position = position.right(1)
+      } 
+      else {position = position.left(9)}       
+	}
 }
 
 object zombie {
@@ -22,4 +29,11 @@ object zombie {
 		personaje.estado("Infectado")
 		game.onTick(1000, "DAÑODEINFECCION", { personaje.restarVida(5) })
 	}
+	
+	method movete(){
+		if(position.y() < game.height() - 1){
+			 position = position.up(1)
+		}
+		else {position = position.down(5)}
+   }
 }

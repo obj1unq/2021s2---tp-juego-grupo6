@@ -11,6 +11,7 @@ object nivel1{
 		game.addVisual(zombie)
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
+		config.configurarMovimientosEnemigos()
 		letrero.text("HOLA")//{game.onTick(1000, "LETRERO", {(self.contador()-1)})})
 	}
 	
@@ -33,6 +34,10 @@ object config{
 		game.onCollideDo(personajePrincipal, { cosa => cosa.chocarCon(personajePrincipal)})
 	}	
 	
+	method configurarMovimientosEnemigos(){
+		game.onTick(500, "MOVIMIENTOS", {fantasma.movete()} )
+		game.onTick(500, "MOVIMIENTOS", {zombie.movete()} )
+	}
 
 }
 
