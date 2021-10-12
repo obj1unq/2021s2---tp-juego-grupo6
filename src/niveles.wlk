@@ -9,15 +9,11 @@ object nivel1{
 		game.addVisual(personajePrincipal)
 		game.addVisual(fantasma)
 		game.addVisual(zombie)
+		game.addVisual(contador) // HACER DINÁMICO
+		game.addVisual(opcionesFinDeJuego)
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimientosEnemigos()
-		letrero.text("HOLA")//{game.onTick(1000, "LETRERO", {(self.contador()-1)})})
-	}
-	
-
-	method contador() {
-		return "" // agregar contador con letrero numerico
 	}
 }
 
@@ -41,20 +37,20 @@ object config{
 
 }
 
-object letrero {
-	var contador = "X"
-	var property position = game.at(5,5)
-	var property text = ""
+object colores {
+	const property verde = "00FF00FF"
+	const property rojo = "FF0000FF"
+	const property cyan = "00FFFFFF"
+}
+
+object contador {
+	const contador = "120"
 	
-	method textColor() { 
-		return "00ffffff"
-	}
+	method position() = game.at(9,9)
+	method text() = contador
+	method textColor() = colores.cyan()
 	
 	method seAcaboElTiempo () {
 		return contador == 0
-	}
-		
-	method contador() {
-		return contador // agregar contador con letrero numerico
 	}
 }

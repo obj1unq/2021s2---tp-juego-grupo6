@@ -47,21 +47,19 @@ object personajePrincipal {
 	}
 	
 	method estaEnLaMeta() {
-		self.estaEnLaMismaPosicion(meta)
-		self.ganar()
+		self.estaEnLaMismaPosicion(META)
 	}
 	
-	method finDelJuego() {
-		self.estaMuerto() or letrero.seAcaboElTiempo()
-		self.perder()
+	method perdio() {
+		return self.estaMuerto() or contador.seAcaboElTiempo()
 	}
 	
-	method estaMuerto() = vitalidad == 0
+	method estaMuerto() = vitalidad <= 0
 	
 	method terminar() {
-		cartel.text("REINICIAR [espacio]")
-		cartel.text("SALIR [enter]")
-		//game.removeTickEvent("nombreDelTick")
+		opcionesFinDeJuego.text("REINICIAR [espacio]")
+		opcionesFinDeJuego.text("SALIR [enter]")
+		game.removeTickEvent("MOVIMIENTOS")
 		keyboard.enter().onPressDo({game.stop()})
 		keyboard.space().onPressDo({game.start()})
 	}
@@ -94,25 +92,12 @@ object izquierda{
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-	object cartel {
-	var property position = game.at(5,5)
-	var property text = ""
-	method textColor() { 
-		return "ff0000ff"
-	}
+object opcionesFinDeJuego {
+	method position() = game.center()
+	method text() = ""
+	method textColor() = colores.verde()
 }
+
 	
 
 

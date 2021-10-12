@@ -34,6 +34,6 @@ object zombie {
 		if(position.y() < game.height() - 1){
 			 position = position.up(1)
 		}
-		else {position = position.down(5)}
+		else {position = position.down(9)}
    }
 }
