@@ -1,4 +1,4 @@
-import pepita.*
+import personajePrincipal.*
 import wollok.game.*
 import niveles.*
 
@@ -27,7 +27,7 @@ object zombie {
 	
 	method chocarCon(personaje) { 
 		personaje.estado("Infectado")
-		game.onTick(1000, "DAÑODEINFECCION", { personaje.restarVida(5) })
+		game.onTick(2000, "DAÑODEINFECCION", { personaje.restarVida(5) })
 	}
 	
 	method movete(){

@@ -1,4 +1,4 @@
-import pepita.*
+import personajePrincipal.*
 import extras.*
 import wollok.game.*
 
@@ -10,10 +10,16 @@ object nivel1{
 		game.addVisual(fantasma)
 		game.addVisual(zombie)
 		game.addVisual(contador) // HACER DINÁMICO
-		game.addVisual(opcionesFinDeJuego)
+		game.addVisual(opcionDeReinicio)
+		game.addVisual(opcionDeSalir)
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimientosEnemigos()
+	}
+	
+	method reiniciar(){
+		game.clear()
+		game.start()
 	}
 }
 
@@ -44,7 +50,7 @@ object colores {
 }
 
 object contador {
-	const contador = "120"
+	const contador = "30"
 	
 	method position() = game.at(9,9)
 	method text() = contador

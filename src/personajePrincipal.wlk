@@ -4,10 +4,13 @@ import niveles.*
 
 object personajePrincipal {
     var property position = game.origin()
-    var property vitalidad = 100
+    var vitalidad = 100
     var property estado = "normal"
     var property direccion = derecha
     
+    method vitalidad(){
+    	return vitalidad//.min(0)
+    }
     
     method chocoConElZombie() {
     	return self.estaEnLaMismaPosicion(zombie)
@@ -22,6 +25,7 @@ object personajePrincipal {
 	}
     
     method restarVida(cantidad) {
+    	self.validarVida()
     	vitalidad -= cantidad
     }
     
@@ -29,9 +33,13 @@ object personajePrincipal {
 		return "personajePrincipal.png"
 	}
 	
-	method mover(_direccion){	
+	method mover(_direccion){
 		direccion = _direccion	
 		self.irA(_direccion.siguiente(self.position()))
+	}
+	
+	method validarVida(){
+		if (self.estaMuerto()) {self.perder()}
 	}
 	
 	method irA(nuevaPosicion){
@@ -51,17 +59,16 @@ object personajePrincipal {
 	}
 	
 	method perdio() {
-		return self.estaMuerto() or contador.seAcaboElTiempo()
+		return self.estaMuerto()// or contador.seAcaboElTiempo()
 	}
 	
 	method estaMuerto() = vitalidad <= 0
 	
 	method terminar() {
-		opcionesFinDeJuego.text("REINICIAR [espacio]")
-		opcionesFinDeJuego.text("SALIR [enter]")
+		opcionDeSalir.text("presione ENTER para salir")
+		opcionDeReinicio.text("presione ESPACIO para reiniciar")
 		game.removeTickEvent("MOVIMIENTOS")
 		keyboard.enter().onPressDo({game.stop()})
-		keyboard.space().onPressDo({game.start()})
 	}
 }
 
@@ -92,9 +99,18 @@ object izquierda{
 	}
 }
 
-object opcionesFinDeJuego {
-	method position() = game.center()
-	method text() = ""
+object opcionDeSalir {
+	var property position = game.at(5,4)
+	var property text = ""
+	
+	method textColor() = colores.rojo()
+}
+
+
+object opcionDeReinicio {
+	var property position = game.at(5,5)
+	var property text = ""
+	
 	method textColor() = colores.verde()
 }
 
