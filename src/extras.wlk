@@ -40,9 +40,9 @@ object zombie {
 
 
 object cueva {
-	var property position = game.at(6,8)
+	var property position = game.at(8,8)
 	
-	method image() = "cueva.PNG"
+	method image() = "Cueva_clara.PNG"
 	
 	method chocarCon(personaje){
 		 personaje.entrarACueva()
