@@ -10,7 +10,7 @@ object nivel1{
 		game.addVisual(fantasma)
 		game.addVisual(zombie)
 		game.addVisual(contador) // HACER DINÁMICO
-		game.addVisual(opcionDeReinicio)
+	//	game.addVisual(opcionDeReinicio)
 		game.addVisual(opcionDeSalir)
 		game.addVisual(cueva)
 		config.configuracionDeTeclas()

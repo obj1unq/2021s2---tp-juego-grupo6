@@ -68,13 +68,13 @@ object personajePrincipal {
 		return self.estaMuerto()// or contador.seAcaboElTiempo()
 	}
 	
-	method estaMuerto() = vitalidad <= 0
+	method estaMuerto() = vitalidad == 0
 	
 	method terminar() {
 	
 		opcionDeSalir.text("presione ENTER para salir")
-		opcionDeReinicio.text("presione ESPACIO para reiniciar")
-		game.removeTickEvent("MOVIMIENTOS")
+		// opcionDeReinicio.text("presione ESPACIO para reiniciar")
+		// game.removeTickEvent("MOVIMIENTOS")
 		keyboard.enter().onPressDo({game.stop()})
 	}
 }
@@ -114,12 +114,12 @@ object opcionDeSalir {
 }
 
 
-object opcionDeReinicio {
-	var property position = game.at(5,5)
-	var property text = ""
+// object opcionDeReinicio {
+//	var property position = game.at(5,5)
+//	var property text = ""
 	
-	method textColor() = colores.verde()
-}
+//	method textColor() = colores.verde()
+//}
 
 
 object opcionDeEntrar {
