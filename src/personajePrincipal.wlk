@@ -2,6 +2,8 @@ import wollok.game.*
 import extras.*
 import niveles.*
 
+
+
 object personajePrincipal {
     var property position = game.origin()
     var vitalidad = 100
@@ -19,6 +21,10 @@ object personajePrincipal {
     method chocoConElFantasma() {
     	return self.estaEnLaMismaPosicion(fantasma)
     }
+    
+	method estaEnLaMeta() {
+		return self.estaEnLaMismaPosicion(cueva)
+	}
     
     method estaEnLaMismaPosicion(algo) {
 		return position == algo.position()
@@ -46,17 +52,17 @@ object personajePrincipal {
 		position = nuevaPosicion
 	}
 	
-	method ganar() {
-		self.terminar()
+	method entrarACueva() {
+		game.say(self, 'LLEGUÉ A LA CUEVA!')
+		opcionDeEntrar.text("presione ENTER para entrar");
+		keyboard.enter().onPressDo({game.removeVisual(self)})
+		game.schedule(2000, {game.stop()})		
 	}
 	
 	method perder() {
 		self.terminar()
 	}
 	
-	method estaEnLaMeta() {
-		self.estaEnLaMismaPosicion(META)
-	}
 	
 	method perdio() {
 		return self.estaMuerto()// or contador.seAcaboElTiempo()
@@ -65,6 +71,7 @@ object personajePrincipal {
 	method estaMuerto() = vitalidad <= 0
 	
 	method terminar() {
+	
 		opcionDeSalir.text("presione ENTER para salir")
 		opcionDeReinicio.text("presione ESPACIO para reiniciar")
 		game.removeTickEvent("MOVIMIENTOS")
@@ -114,6 +121,14 @@ object opcionDeReinicio {
 	method textColor() = colores.verde()
 }
 
+
+object opcionDeEntrar {
+	var property position = game.at(5,5)
+	var property text = ""
 	
+	method textColor() {
+		colores.cyan()
+	} 
+}
 
 
