@@ -4,15 +4,14 @@ import wollok.game.*
 
 object nivel1{
 	
-	
 	method iniciar(){
-		game.addVisual(personajePrincipal)
+		game.addVisual(cueva)
 		game.addVisual(fantasma)
 		game.addVisual(zombie)
-		game.addVisual(contador) // HACER DINÁMICO
+		game.addVisual(personajePrincipal)
+//		game.addVisual(contador) // HACER DINÁMICO
 	//	game.addVisual(opcionDeReinicio)
 		game.addVisual(opcionDeSalir)
-		game.addVisual(cueva)
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimientosEnemigos()
@@ -20,7 +19,7 @@ object nivel1{
 	
 	method reiniciar(){
 		game.clear()
-		game.start()
+		self.iniciar()
 	}
 }
 
@@ -31,6 +30,7 @@ object config{
 		keyboard.right().onPressDo({ personajePrincipal.mover(derecha) })
 		keyboard.up().onPressDo({ personajePrincipal.mover(arriba) })
 		keyboard.down().onPressDo({ personajePrincipal.mover(abajo) })
+		keyboard.r().onPressDo({ nivel1.reiniciar() })
 	}
 	
 	method configurarColisiones() {
@@ -38,8 +38,8 @@ object config{
 	}	
 	
 	method configurarMovimientosEnemigos(){
-		game.onTick(500, "MOVIMIENTOS", {fantasma.movete()} )
-		game.onTick(500, "MOVIMIENTOS", {zombie.movete()} )
+		game.onTick(100, "MOVIMIENTOS", {fantasma.movete()} )
+		game.onTick(350, "MOVIMIENTOS", {zombie.movete()} )
 	}
 
 }
@@ -50,14 +50,14 @@ object colores {
 	const property cyan = "00FFFFFF"
 }
 
-object contador {
-	const contador = "30"
-	
-	method position() = game.at(9,9)
-	method text() = contador
-	method textColor() = colores.cyan()
-	
-	method seAcaboElTiempo () {
-		return contador == 0
-	}
-}
+//object contador {
+//	const valor = 30
+//	
+//	method position() = game.at(9,9)
+//	method text() = valor
+//	method textColor() = colores.cyan()
+//	
+//	method seAcaboElTiempo () {
+//		return contador == 0
+//	}
+//}
