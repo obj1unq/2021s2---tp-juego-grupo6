@@ -26,9 +26,13 @@ object infectado {
 }
 
  object paralisis {
-	method surtirEfecto(personaje){}
+	method surtirEfecto(personaje){
+		 
+	}
 	
-	method efectoDeBonusHp(personaje){}
+	method efectoDeBonusHp(personaje){
+		
+	}
 }
 
 // estados positivos.

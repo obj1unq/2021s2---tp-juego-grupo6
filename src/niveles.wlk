@@ -10,7 +10,7 @@ object nivel1{
 		game.addVisual(zombie)
 		game.addVisual(personajePrincipal)
 		game.addVisual(bonusHp)
-//		game.addVisual(contador) // HACER DINÁMICO
+    //	game.addVisual(contador) // HACER DINÁMICO
 	//	game.addVisual(opcionDeReinicio)
 		game.addVisual(opcionDeSalir)
 		config.configuracionDeTeclas()

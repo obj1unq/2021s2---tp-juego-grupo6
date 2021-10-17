@@ -17,7 +17,7 @@ object fantasma {
       if(position.x() < game.width() - 1){
       	position = position.right(1)
       } 
-      else {position = position.left(9)}       
+      else {position = position.left(13)}       
 	}
 }
 
@@ -35,13 +35,13 @@ object zombie {
 		if(position.y() < game.height() - 1){
 			 position = position.up(1)
 		}
-		else {position = position.down(9)}
+		else {position = position.down(11)}
    }
 }
 
 
 object cueva {
-	var property position = game.at(8,8)
+	var property position = game.at(13,13)
 	
 	method image() = "Cueva_clara.PNG"
 	
