@@ -2,13 +2,14 @@ import wollok.game.*
 import personajePrincipal.*
 import extras.*
 import niveles.*
+import estados.*
 
 program juego {
 	game.title("Juego Base")
 	nivel1.iniciar()
 	game.height(10)
 	game.width(10)
-	game.boardGround("fondo.jpg")
+	game.boardGround("fondo2.png")
 	game.showAttributes(personajePrincipal)
 	game.start()
 }

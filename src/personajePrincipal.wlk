@@ -1,13 +1,13 @@
 import wollok.game.*
 import extras.*
 import niveles.*
-
+import estados.*
 
 
 object personajePrincipal {
     var property position = game.origin()
     var vitalidad = 100
-    var property estado = "normal"
+    var property estado = normal
     var property direccion = derecha
     
     method vitalidad(){
@@ -33,6 +33,13 @@ object personajePrincipal {
     method restarVida(cantidad) {
     	self.validarVida()
     	vitalidad -= cantidad
+    }
+    
+    method efectoDeEstado(){
+    	 estado.surtirEfecto(self)
+    }
+    method aplicarBonusHp(){
+    	estado.efectoDeBonusHp(self)
     }
     
 	method image() {
@@ -71,11 +78,7 @@ object personajePrincipal {
 	method estaMuerto() = vitalidad == 0
 	
 	method terminar() {
-	
-		opcionDeSalir.text("presione ENTER para salir")
-		// opcionDeReinicio.text("presione ESPACIO para reiniciar")
-		// game.removeTickEvent("MOVIMIENTOS")
-		keyboard.enter().onPressDo({game.stop()})
+	    game.stop()
 	}
 }
 

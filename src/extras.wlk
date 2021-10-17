@@ -1,6 +1,7 @@
 import personajePrincipal.*
 import wollok.game.*
 import niveles.*
+import estados.*
 
 object fantasma {
 	var property position = game.at(2,3)
@@ -8,8 +9,8 @@ object fantasma {
 	method image() { return "CharacterGhost.png"}
 	
 	method chocarCon(personaje) { 
-		personaje.estado("Asustado")
-		personaje.restarVida(50)
+		personaje.estado(asustado)
+		personaje.efectoDeEstado()
 	}
 	
 	method movete(){
@@ -26,8 +27,8 @@ object zombie {
 	method image() { return "CharacterZombi.png"}
 	
 	method chocarCon(personaje) { 
-		personaje.estado("Infectado")
-		game.onTick(2000, "DAÑODEINFECCION", { personaje.restarVida(5) })
+		personaje.estado(infectado)
+		personaje.efectoDeEstado()
 	}
 	
 	method movete(){
@@ -50,7 +51,16 @@ object cueva {
 }
 
 
-
+object bonusHp {
+	var property position = game.at(5,7)
+	
+	method image() = "Souls.png"
+	
+	method chocarCon(personaje){
+		personaje.aplicarBonusHp()
+		personaje.estado(normal)
+	}
+}
 
 
 
