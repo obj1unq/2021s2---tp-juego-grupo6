@@ -1,6 +1,7 @@
 import personajePrincipal.*
 import extras.*
 import wollok.game.*
+import bonus.*
 
 object nivel1{
 	
@@ -20,7 +21,6 @@ object nivel1{
 	
 	method reiniciar(){
 		game.clear()
-		self.iniciar()
 	}
 }
 

@@ -6,7 +6,7 @@ import estados.*
 object fantasma {
 	var property position = game.at(2,3)
 	
-	method image() { return "CharacterGhost.png"}
+	method image() = "CharacterGhost.png"
 	
 	method chocarCon(personaje) { 
 		personaje.estado(asustado)
@@ -24,7 +24,7 @@ object fantasma {
 object zombie {
 	var property position = game.at(1,8)
 	
-	method image() { return "CharacterZombi.png"}
+	method image() = "CharacterZombi.png"
 	
 	method chocarCon(personaje) { 
 		personaje.estado(infectado)
@@ -51,16 +51,7 @@ object cueva {
 }
 
 
-object bonusHp {
-	var property position = game.at(5,7)
-	
-	method image() = "Souls.png"
-	
-	method chocarCon(personaje){
-		personaje.aplicarBonusHp()
-		personaje.estado(normal)
-	}
-}
+
 
 
 
