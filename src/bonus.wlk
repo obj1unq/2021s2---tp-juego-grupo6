@@ -13,7 +13,19 @@ object bonusHp {
 	method chocarCon(personaje){
 		personaje.aplicarBonusHp()
 		personaje.estado(normal)
-		game.removeVisual(bonusHp)
+		game.removeVisual(self)
+	}
+}
+
+object bonusRegeneracion {
+	var property position = game.at(7,9)
+	
+	method image() = "pepita.png"
+	
+	method chocarCon(personaje) {
+		personaje.estado(regenerando)
+		personaje.efectoDeEstado()
+		game.removeVisual(self)
 	}
 }
 

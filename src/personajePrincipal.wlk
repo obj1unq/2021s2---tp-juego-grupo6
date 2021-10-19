@@ -35,6 +35,7 @@ object personajePrincipal {
 	method irA(nuevaPosicion){ position = nuevaPosicion }
 	method estaMuerto() = vitalidad <= 0
     method restarVida(cantidad) { self.validarVida() ; vitalidad -= cantidad }
+    method regenerarVida(cantidad) { vitalidad += cantidad }
 	
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto()) { self.error("¡Ojalá pudiera!") } }
