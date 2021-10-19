@@ -9,6 +9,7 @@ object asustado {
 	 method surtirEfecto(personaje){
 	 	game.say(personaje, "QUE SUSTO LPM!")
     	personaje.restarVida(50)
+    	game.schedule(2800, { personaje.estado(normal) } )
     	}
     	
     method efectoDeBonusHp(personaje){ } 			
@@ -17,7 +18,7 @@ object asustado {
 object infectado {
 	 method surtirEfecto(personaje){
 	 	game.say(personaje, "ESTOY INFECTADO!")
-	 	game.onTick(2000, "DAÑODEINFECCION", { personaje.restarVida(5) })
+	 	game.onTick(250, "DAÑODEINFECCION", { personaje.restarVida(1) })
 	 }
 	 
 	 method efectoDeBonusHp(personaje){ game.removeTickEvent("DAÑODEINFECCION") }
@@ -34,6 +35,6 @@ object infectado {
 object normal {
 	
 	method surtirEfecto(personaje){ /* POLIMORFISMO */}
-	method efectoDeBonusHp(personaje) = personaje.vitalidad() + 100
+	method efectoDeBonusHp(personaje) { personaje.vitalidad(100) }
 }
 

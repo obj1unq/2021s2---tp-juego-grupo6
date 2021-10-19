@@ -27,10 +27,10 @@ object personajePrincipal {
     var property direccion = derecha
     
 /********** CONFIGURACION ********/
-	method image() = "Ricky/principal-" + direccion + ".png"
 	
-   // TODO:method image() = "Ricky/principal-" + estado + direccion + ".png"
-   //		TODO: VER COMO AGREGAR EL ESTADO.
+ method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
+ 
+ // TODO: Agregar imagen de estado(INFECTADO)
    
 	method irA(nuevaPosicion){ position = nuevaPosicion }
 	method estaMuerto() = vitalidad <= 0
@@ -52,7 +52,7 @@ object personajePrincipal {
 		game.say(self, 'LLEGUÉ A LA CUEVA!')
 		game.schedule(650, {game.removeVisual(self)})
 		keyboard.enter().onPressDo({game.stop()})
-		game.schedule(2000, {opcionDeSalir.text("Presione ENTER para salir")})
+		game.schedule(1500, {opcionDeSalir.text("Presione ENTER para salir")})
 	}
 	
 	method terminar() { 

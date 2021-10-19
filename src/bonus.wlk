@@ -13,5 +13,8 @@ object bonusHp {
 	method chocarCon(personaje){
 		personaje.aplicarBonusHp()
 		personaje.estado(normal)
+		game.removeVisual(bonusHp)
 	}
 }
+
+// TODO: Agregar diferentes tipos de bonus.

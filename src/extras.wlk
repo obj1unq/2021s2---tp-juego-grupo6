@@ -43,11 +43,12 @@ object zombie {
 object cueva {
 	var property position = game.at(13,13)
 	
-	method image() = "Cueva/CuevaClara.PNG"
+	method image() {return if (personajePrincipal.estado == normal) "Cueva/CuevaClara.PNG"
+						else "Cueva/CuevaOscura.PNG"}
+	// TODO: Ver cómo arreglar este código. (parametrizar)
+	// Hacer que no se pueda entrar a la cueva cuando está oscura.
 	
-	method chocarCon(personaje){
-		 personaje.entrarACueva()
-	}	
+	method chocarCon(personaje){ personaje.entrarACueva() }
 }
 
 
