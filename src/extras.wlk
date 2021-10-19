@@ -9,11 +9,13 @@ class Fantasma {
 	method image() = "Fantasma/CharacterGhost.png"
 	
 	method movete(){
-      if(position.x() < game.width() - 1){
-      	position = position.right(1)
-      } 
-      else {position = position.left(13)}       
+     	  if ( self.estaEnBordeEste() ) { self.moverEste() }
+      	else { self.irAlBordeOeste() }
 	}
+	
+	method estaEnBordeEste() = position.x() < game.width() - 1
+	method moverEste() {position = position.right(1)}
+	method irAlBordeOeste() {position = position.left(game.width() - 1)}
 	
 	method chocarCon(personaje){
 		personaje.estado(asustado)
@@ -22,16 +24,18 @@ class Fantasma {
 }
 
 class Zombie {
-	var property position = game.at(1,8)
+	var property position
 	
 	method image() = "Zombie/CharacterZombi.png"
 		
 	method movete(){
-		if(position.y() < game.height() - 1){
-			 position = position.up(1)
-		}
-		else {position = position.down(11)}
-   }
+		  if ( self.estaEnBordeNorte() ){ self.moverNorte() }
+		else { self.irAlBordeSur() }
+    }
+   method estaEnBordeNorte() = position.y() < game.height() - 1
+   method moverNorte() {position = position.up(1)}
+   method irAlBordeSur() {position = position.down(game.height() - 1)}
+   
    method chocarCon(personaje){
    	    personaje.estado(infectado)
 		personaje.efectoDeEstado()
