@@ -12,7 +12,7 @@ object asustado {
     	game.schedule(2800, { personaje.estado(normal) } )
     	}
     	
-    method efectoDeBonusHp(personaje){ } 			
+    method efectoDeBonusHp(personaje){ personaje.regenerarVida(25) } 			
 }
 
 object infectado {
@@ -35,6 +35,17 @@ object infectado {
 object normal {
 	
 	method surtirEfecto(personaje){ /* POLIMORFISMO */}
-	method efectoDeBonusHp(personaje) { personaje.vitalidad(100) }
+	method efectoDeBonusHp(personaje) { personaje.regenerarVida(50) }
 }
 
+object regenerando {
+	
+	method surtirEfecto(personaje) {
+		game.say(personaje, "ME ESTOY REGENERANDO")
+		game.onTick(300, "REGENERACION", { personaje.regenerarVida(1) })
+		game.schedule(7000, { game.removeTickEvent("REGENERACION") })
+		personaje.estado(normal)
+	}
+	
+	method efectoBonusHp(personaje) {/* POLIMORFISMO */}
+}

@@ -20,6 +20,7 @@ object nivel1{
 		game.addVisual(fantasma)
 		game.addVisual(zaramay)
 		game.onTick(5000, "GenerarBonus", {game.addVisual(bonusHp)} )
+		game.onTick(5000, "GenerarBonus2", {game.addVisual(bonusRegeneracion)})
 // TODO:game.addVisual(contador) // HACER DINÁMICO
 // TODO:game.addVisual(opcionDeReinicio)
 		game.addVisual(opcionDeSalir)
