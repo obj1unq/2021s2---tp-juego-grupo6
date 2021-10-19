@@ -8,7 +8,7 @@ import wollok.game.*
 object bonusHp {
 	var property position = game.at(5,7)
 	
-	method image() = "bonusHP.png"
+	method image() = "Bonus/bonusHP.png"
 	
 	method chocarCon(personaje){
 		personaje.aplicarBonusHp()

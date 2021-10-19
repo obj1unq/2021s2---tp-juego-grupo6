@@ -27,9 +27,13 @@ object personajePrincipal {
     var property direccion = derecha
     
 /********** CONFIGURACION ********/
-	method image() = "principal-derecha.png"
+	method image() = "Ricky/principal-" + direccion + ".png"
+	
+   // TODO:method image() = "Ricky/principal-" + estado + direccion + ".png"
+   //		TODO: VER COMO AGREGAR EL ESTADO.
+   
 	method irA(nuevaPosicion){ position = nuevaPosicion }
-	method estaMuerto() = vitalidad == 0
+	method estaMuerto() = vitalidad <= 0
     method restarVida(cantidad) { self.validarVida() ; vitalidad -= cantidad }
 	
 /********** VALIDACIONES ********/
@@ -66,10 +70,11 @@ object personajePrincipal {
     
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
     method efectoDeEstado(){ estado.surtirEfecto(self) }
+}
 
 /********** CARTELES ********/
 object opcionDeSalir {
-	var property position = game.at(7,7)
+	var property position = game.center()
 	var property text = ""
 	
 	method textColor() = colores.rojo()

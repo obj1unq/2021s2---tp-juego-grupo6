@@ -6,7 +6,7 @@ import estados.*
 object fantasma {
 	var property position = game.at(2,3)
 	
-	method image() = "CharacterGhost.png"
+	method image() = "Fantasma/CharacterGhost.png"
 	
 	method chocarCon(personaje) { 
 		personaje.estado(asustado)
@@ -24,7 +24,7 @@ object fantasma {
 object zombie {
 	var property position = game.at(1,8)
 	
-	method image() = "CharacterZombi.png"
+	method image() = "Zombie/CharacterZombi.png"
 	
 	method chocarCon(personaje) { 
 		personaje.estado(infectado)
@@ -43,7 +43,7 @@ object zombie {
 object cueva {
 	var property position = game.at(13,13)
 	
-	method image() = "Cueva_clara.PNG"
+	method image() = "Cueva/CuevaClara.PNG"
 	
 	method chocarCon(personaje){
 		 personaje.entrarACueva()

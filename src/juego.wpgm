@@ -5,11 +5,11 @@ import niveles.*
 import estados.*
 
 program juego {
-	game.title("Juego Base")
+	game.title("Ricky´s Adventures")
 	nivel1.iniciar()
 	game.height(15)
 	game.width(15)
-	game.boardGround("fondo2.png")
+	game.boardGround("Fondo/fondo2.png")
 	game.showAttributes(personajePrincipal)
 	game.start()
 }
