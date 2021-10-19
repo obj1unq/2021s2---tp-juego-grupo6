@@ -64,9 +64,9 @@ object personajePrincipal {
 /********** COLISIONES ********/
     method estaEnLaMismaPosicion(algo) = position == algo.position()
     
-    method chocoConElZombie() = self.estaEnLaMismaPosicion(zombie)
-    method chocoConElFantasma() = self.estaEnLaMismaPosicion(fantasma)    
-	method chocoConLaCueva() = self.estaEnLaMismaPosicion(cueva)
+   // method chocoConElZombie() = self.estaEnLaMismaPosicion(zombie)
+   // method chocoConElFantasma() = self.estaEnLaMismaPosicion(fantasma)    con clases estos 2 metodos son innecesarios.
+   	method chocoConLaCueva() = self.estaEnLaMismaPosicion(cueva)
     
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
     method efectoDeEstado(){ estado.surtirEfecto(self) }

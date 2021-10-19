@@ -8,17 +8,28 @@ object nivel1{
 // TODO: AGREGAR MUSICA
 	
 	method iniciar(){
+	/********** ENEMIGOS DEL NIVEL ********/
+		const fantasma = new Fantasma(position = game.at(4,3)) // Esta constante nos da un objeto fantasma.
+		const zombie = new Zombie(position = game.at(2,4))   // Esta constante nos da un objeto zombie.
+		const zaramay = new Fantasma(position = game.at(6,7)) // xd
+		
+	/********** VISUALS DEL NIVEL********/
 		game.addVisual(cueva)
-		game.addVisual(fantasma)
-		game.addVisual(zombie)
 		game.addVisual(personajePrincipal)
+		game.addVisual(zombie)
+		game.addVisual(fantasma)
+		game.addVisual(zaramay)
 		game.onTick(5000, "GenerarBonus", {game.addVisual(bonusHp)} )
 // TODO:game.addVisual(contador) // HACER DINÁMICO
 // TODO:game.addVisual(opcionDeReinicio)
 		game.addVisual(opcionDeSalir)
+		
+/********** CONFIGURACIONES DEL NIVEL ********/
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
-		config.configurarMovimientosEnemigos()
+		config.configurarMovimiento(fantasma)
+		config.configurarMovimiento(zombie)
+		config.configurarMovimiento(zaramay)
 	}
 }
 
@@ -36,10 +47,11 @@ object config{
 		game.onCollideDo(personajePrincipal, { cosa => cosa.chocarCon(personajePrincipal)})
 	}	
 	
-	method configurarMovimientosEnemigos(){
-		game.onTick(100, "MOVIMIENTOS", {fantasma.movete()} )
-		game.onTick(350, "MOVIMIENTOS", {zombie.movete()} )
+	method configurarMovimiento(enemigo){
+		game.onTick(200, "MOVIMIENTOS", {enemigo.movete()} ) // podriamos agregar un parametro mas que defina al tiempo
+		                                                     // por si queremos que un enemigo se mueva a distinta velocidad :D
 	}
+	
 
 }
 
