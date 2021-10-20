@@ -31,9 +31,10 @@ object nivel1{
 /********** CONFIGURACIONES DEL NIVEL ********/
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
-		config.configurarMovimiento(fantasma)
-		config.configurarMovimiento(zombie)
-		config.configurarMovimiento(zaramay)
+		config.configurarMovimiento(fantasma, 200)
+		config.configurarMovimiento(zombie, 200)
+		config.configurarMovimiento(zaramay, 200)
+		config.configurarMovimiento(arana1, 700)
 	}
 }
 
@@ -51,11 +52,11 @@ object config{
 		game.onCollideDo(personajePrincipal, { cosa => cosa.chocarCon(personajePrincipal)})
 	}	
 	
-	method configurarMovimiento(enemigo){
-		game.onTick(200, "MOVIMIENTOS", {enemigo.movete()} ) // podriamos agregar un parametro mas que defina al tiempo
-		                                                     // por si queremos que un enemigo se mueva a distinta velocidad :D
-		game.onTick(500, "Camina la araña", { arana1.movete() } )
-	}
+	method configurarMovimiento(enemigo, tiempo){
+		game.onTick(tiempo, "MOVIMIENTOS", {enemigo.movete()} )
+	
+	}                                                   
+	
 	
 
 }
