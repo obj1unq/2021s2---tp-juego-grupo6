@@ -9,8 +9,7 @@ class Fantasma {
 	method image() = "Fantasma/CharacterGhost.png"
 	
 	method movete(){
-     	  if ( self.estaEnBordeEste() ) { self.moverEste() }
-      	else { self.irAlBordeOeste() }
+   	  if ( self.estaEnBordeEste() ) { self.moverEste() } else { self.irAlBordeOeste() }
 	}
 	
 	method estaEnBordeEste() = position.x() < game.width() - 1
@@ -28,10 +27,12 @@ class Zombie {
 	
 	method image() = "Zombie/CharacterZombi.png"
 		
-	method movete(){
+	
+ 	method movete(){
 		  if ( self.estaEnBordeNorte() ){ self.moverNorte() }
 		else { self.irAlBordeSur() }
     }
+ 
    method estaEnBordeNorte() = position.y() < game.height() - 1
    method moverNorte() {position = position.up(1)}
    method irAlBordeSur() {position = position.down(game.height() - 1)}
@@ -57,7 +58,23 @@ object cueva {
 }
 
 
-
+class Arana {
+	
+	var property position = game.at(6,8)
+	
+	method image() { return "Araña/araña.png"}
+	
+	method chocarCon(personaje) {}
+	
+	method movete() {
+    	const x = 0.randomUpTo(game.width()).truncate(0)
+    	const y = 0.randomUpTo(game.height()).truncate(0)
+    
+    	position = game.at(x,y)
+    
+	}
+	
+}
 
 
 

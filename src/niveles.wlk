@@ -10,8 +10,9 @@ object nivel1{
 	method iniciar(){
 	/********** ENEMIGOS DEL NIVEL ********/
 		const fantasma = new Fantasma(position = game.at(4,3)) // Esta constante nos da un objeto fantasma.
-		const zombie = new Zombie(position = game.at(2,4))   // Esta constante nos da un objeto zombie.
-		const zaramay = new Fantasma(position = game.at(6,7)) // xd
+		const zombie   = new Zombie(position = game.at(2,4))   // Esta constante nos da un objeto zombie.
+		const zaramay  = new Fantasma(position = game.at(6,7)) // xd
+		const arana1   = new Arana()
 		
 	/********** VISUALS DEL NIVEL********/
 		game.addVisual(cueva)
@@ -19,8 +20,10 @@ object nivel1{
 		game.addVisual(zombie)
 		game.addVisual(fantasma)
 		game.addVisual(zaramay)
+		game.addVisual(arana1)
 		game.onTick(5000, "GenerarBonus", {game.addVisual(bonusHp)} )
 		game.onTick(5000, "GenerarBonus2", {game.addVisual(bonusRegeneracion)})
+
 // TODO:game.addVisual(contador) // HACER DINÁMICO
 // TODO:game.addVisual(opcionDeReinicio)
 		game.addVisual(opcionDeSalir)
@@ -51,6 +54,7 @@ object config{
 	method configurarMovimiento(enemigo){
 		game.onTick(200, "MOVIMIENTOS", {enemigo.movete()} ) // podriamos agregar un parametro mas que defina al tiempo
 		                                                     // por si queremos que un enemigo se mueva a distinta velocidad :D
+		game.onTick(500, "Camina la araña", { arana1.movete() } )
 	}
 	
 
