@@ -24,7 +24,7 @@ object infectado {
 	 method efectoDeBonusHp(personaje){ game.removeTickEvent("DAÑODEINFECCION") }
 }
 
- object paralizado {
+object paralizado {
  	
 	method surtirEfecto(personaje) {}
 	method efectoDeBonusHp(personaje) {}
@@ -34,7 +34,7 @@ object infectado {
 
 object normal {
 	
-	method surtirEfecto(personaje){ /* POLIMORFISMO */}
+	method surtirEfecto(personaje) {/* POLIMORFISMO */}
 	method efectoDeBonusHp(personaje) { personaje.regenerarVida(50) }
 }
 
@@ -42,10 +42,18 @@ object regenerando {
 	
 	method surtirEfecto(personaje) {
 		game.say(personaje, "ME ESTOY REGENERANDO")
-		game.onTick(300, "REGENERACION", { personaje.regenerarVida(1) })
-		game.schedule(7000, { game.removeTickEvent("REGENERACION") })
-		personaje.estado(normal)
+		game.onTick(300, "REGENERACION", { personaje.regenerarVida(3) })
+		game.schedule(3800, { game.removeTickEvent("REGENERACION"); personaje.estado(normal)})
+		
 	}
-	
+
 	method efectoBonusHp(personaje) {/* POLIMORFISMO */}
 }
+
+object inquebrantable { 	
+	// TODO: hacer que no pueda ser afectado durante este estado.
+	method surtirEfecto(personaje)  {}
+	method efectoBonusHp(personaje) {}
+}
+
+

@@ -3,7 +3,7 @@ import extras.*
 import niveles.*
 import personajePrincipal.*
 import wollok.game.*
-
+import sonidos.*
 
 object bonusHp {
 	var property position = game.at(5,7)
@@ -23,6 +23,7 @@ object bonusRegeneracion {
 	method image() = "pepita.png"
 	
 	method chocarCon(personaje) {
+		regeneracion.reproducir()
 		personaje.estado(regenerando)
 		personaje.efectoDeEstado()
 		game.removeVisual(self)

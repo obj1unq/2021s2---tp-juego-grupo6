@@ -27,7 +27,6 @@ object personajePrincipal {
     var property direccion = derecha
     
 /********** CONFIGURACION ********/
-	
  method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
  
  // TODO: Agregar imagen de estado(INFECTADO)
@@ -42,7 +41,6 @@ object personajePrincipal {
 	method validarVida()  {if (self.estaMuerto()) { self.terminar() } }
 
 /********** ACCIONES **********/
-
 	method mover(_direccion){ 
 		self.validarMover() ;
 		direccion = _direccion
