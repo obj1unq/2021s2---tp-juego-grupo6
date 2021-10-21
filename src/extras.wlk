@@ -11,7 +11,7 @@ class Fantasma {
 	
 	method movete(){
    	  var nuevaX = position.x() + self.pasoAleatorio()
-   	     nuevaX = nuevaX.max(0).min(game.height() - 1)
+   	     nuevaX = nuevaX.max(0).min(game.height() - 1) // esto es para que el fantasma no salga del tablero.
    	     position = game.at(nuevaX,position.y())
    	  
 	}
@@ -38,13 +38,13 @@ class Zombie {
 	
  	method movete(){
 		var nuevaY = position.y() + self.pasoAleatorio()
-		nuevaY = nuevaY.max(0).min(game.width() - 1)
+		nuevaY = nuevaY.max(0).min(game.width() - 1) // esto es para que el Zombie no salga del tablero.
 		position = game.at(position.x(),nuevaY)
     }
  
-   method estaEnBordeNorte() = position.y() < game.height() - 1
-   method moverNorte() {position = position.up(1)}
-   method irAlBordeSur() {position = position.down(game.height() - 1)}
+  // method estaEnBordeNorte() = position.y() < game.height() - 1
+  // method moverNorte() {position = position.up(1)}
+  // method irAlBordeSur() {position = position.down(game.height() - 1)}
    
    method chocarCon(personaje){
    	    infectar.reproducir()
