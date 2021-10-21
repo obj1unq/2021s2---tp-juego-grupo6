@@ -26,7 +26,7 @@ object susto {
 	}
 }
 
-object infectar {
+object infeccion {
 	
 	method reproducir(){
 		game.sound("Zombie/sustoDeZombie.mp3").play()
