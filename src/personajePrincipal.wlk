@@ -27,7 +27,7 @@ object personajePrincipal {
     var property direccion = derecha
     
 /********** CONFIGURACION ********/
- method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
+ 	method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
  
  // TODO: Agregar imagen de estado(INFECTADO)
    
@@ -55,6 +55,7 @@ object personajePrincipal {
 	}
 	
 	method terminar() { 
+		self.image() = "Personaje/Ricky-muerto.png" 
 		game.say(self, 'memurí')
 		keyboard.enter().onPressDo({game.stop()})
 		game.schedule(2000, {opcionDeSalir.text("Presione ENTER para salir")})

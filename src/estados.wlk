@@ -7,7 +7,7 @@ import bonus.*
 
 object asustado {
 	 method surtirEfecto(personaje){
-	 	game.say(personaje, "QUE SUSTO LPM!")
+	 	game.say(personaje, "QUÉ SUSTO LPM!")
     	personaje.restarVida(50)
     	game.schedule(2800, { personaje.estado(normal) } )
     	}
@@ -17,7 +17,6 @@ object asustado {
 
 object infectado {
 	 method surtirEfecto(personaje){
-	 	game.say(personaje, "ESTOY INFECTADO!")
 	 	game.onTick(250, "DAÑODEINFECCION", { personaje.restarVida(1) })
 	 }
 	 
@@ -41,7 +40,6 @@ object normal {
 object regenerando {
 	
 	method surtirEfecto(personaje) {
-		game.say(personaje, "ME ESTOY REGENERANDO")
 		game.onTick(300, "REGENERACION", { personaje.regenerarVida(3) })
 		game.schedule(3800, { game.removeTickEvent("REGENERACION"); personaje.estado(normal)})
 		
