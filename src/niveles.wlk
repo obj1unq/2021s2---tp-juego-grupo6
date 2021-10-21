@@ -31,9 +31,9 @@ object nivel1{
 /********** CONFIGURACIONES DEL NIVEL ********/
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
-		config.configurarMovimiento(fantasma, 200)
+		config.configurarMovimiento(fantasma, 100)
 		config.configurarMovimiento(zombie, 200)
-		config.configurarMovimiento(zaramay, 200)
+		config.configurarMovimiento(zaramay, 100)
 		config.configurarMovimiento(arana1, 700)
 	}
 }

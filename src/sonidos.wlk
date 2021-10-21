@@ -18,3 +18,17 @@ object otroSonidoMas {
 		game.sound("").play()
 	}
 }
+
+object susto {
+	
+	method reproducir(){
+		game.sound("Fantasma/sustoDeFantasma.mp3").play()
+	}
+}
+
+object infectar {
+	
+	method reproducir(){
+		game.sound("Zombie/sustoDeZombie.mp3").play()
+	}
+}

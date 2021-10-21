@@ -2,6 +2,7 @@ import personajePrincipal.*
 import wollok.game.*
 import niveles.*
 import estados.*
+import sonidos.*
 
 class Fantasma {
 	var property position
@@ -9,16 +10,23 @@ class Fantasma {
 	method image() = "Fantasma/CharacterGhost.png"
 	
 	method movete(){
-   	  if ( self.estaEnBordeEste() ) { self.moverEste() } else { self.irAlBordeOeste() }
+   	  var nuevaX = position.x() + self.pasoAleatorio()
+   	     nuevaX = nuevaX.max(0).min(game.height() - 1)
+   	     position = game.at(nuevaX,position.y())
+   	  
 	}
-	
-	method estaEnBordeEste() = position.x() < game.width() - 1
-	method moverEste() {position = position.right(1)}
-	method irAlBordeOeste() {position = position.left(game.width() - 1)}
+	//if ( self.estaEnBordeEste() ) { self.moverEste() } else { self.irAlBordeOeste() }
+	//method estaEnBordeEste() = position.x() < game.width() - 1
+	//method moverEste() {position = position.right(1)}
+	//method irAlBordeOeste() {position = position.left(game.width() - 1)}
 	
 	method chocarCon(personaje){
+		susto.reproducir()
 		personaje.estado(asustado)
 		personaje.efectoDeEstado()
+	}
+	method pasoAleatorio() {
+		return if(0.randomUpTo(2) >= 1){1} else{-1}
 	}
 }
 
@@ -29,8 +37,9 @@ class Zombie {
 		
 	
  	method movete(){
-		  if ( self.estaEnBordeNorte() ){ self.moverNorte() }
-		else { self.irAlBordeSur() }
+		var nuevaY = position.y() + self.pasoAleatorio()
+		nuevaY = nuevaY.max(0).min(game.width() - 1)
+		position = game.at(position.x(),nuevaY)
     }
  
    method estaEnBordeNorte() = position.y() < game.height() - 1
@@ -38,9 +47,14 @@ class Zombie {
    method irAlBordeSur() {position = position.down(game.height() - 1)}
    
    method chocarCon(personaje){
+   	    infectar.reproducir()
    	    personaje.estado(infectado)
 		personaje.efectoDeEstado()
    }
+   
+   method pasoAleatorio() {
+		return if(0.randomUpTo(2) >= 1){1} else{-1}
+	}
 }
 
 
