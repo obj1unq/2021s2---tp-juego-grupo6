@@ -25,12 +25,10 @@ object personajePrincipal {
     var property vitalidad = 100
 	var property estado = normal
     var property direccion = derecha
+
+    method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
     
-/********** CONFIGURACION ********/
- 	method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
- 
- // TODO: Agregar imagen de estado(INFECTADO)
-   
+/********** CONFIGURACION ********/   
 	method irA(nuevaPosicion){ position = nuevaPosicion }
 	method estaMuerto() = vitalidad <= 0
     method restarVida(cantidad) { self.validarVida() ; vitalidad -= cantidad }
@@ -50,24 +48,20 @@ object personajePrincipal {
 	method entrarACueva() {
 		game.say(self, 'LLEGUÉ A LA CUEVA!')
 		game.schedule(650, {game.removeVisual(self)})
-		keyboard.enter().onPressDo({game.stop()})
-		game.schedule(1500, {opcionDeSalir.text("Presione ENTER para salir")})
+		self.terminar()
 	}
 	
 	method terminar() { 
-		self.image() = "Personaje/Ricky-muerto.png" 
-		game.say(self, 'memurí')
+		game.addVisual(opcionDeSalir)
 		keyboard.enter().onPressDo({game.stop()})
 		game.schedule(2000, {opcionDeSalir.text("Presione ENTER para salir")})
 	}
 	
 /********** COLISIONES ********/
     method estaEnLaMismaPosicion(algo) = position == algo.position()
-    
-   // method chocoConElZombie() = self.estaEnLaMismaPosicion(zombie)
-   // method chocoConElFantasma() = self.estaEnLaMismaPosicion(fantasma)    con clases estos 2 metodos son innecesarios.
    	method chocoConLaCueva() = self.estaEnLaMismaPosicion(cueva)
     
+//	BONUS
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
     method efectoDeEstado(){ estado.surtirEfecto(self) }
 }
@@ -78,5 +72,4 @@ object opcionDeSalir {
 	var property text = ""
 	
 	method textColor() = colores.rojo()
-	method chocarCon(personaje){ /* POLIMORFISMO */ }
 }

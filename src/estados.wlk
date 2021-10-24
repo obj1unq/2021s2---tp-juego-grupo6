@@ -45,13 +45,16 @@ object regenerando {
 		
 	}
 
-	method efectoBonusHp(personaje) {/* POLIMORFISMO */}
+	method efectoDeBonusHp(personaje) {/* POLIMORFISMO */}
 }
 
 object inquebrantable { 	
 	// TODO: hacer que no pueda ser afectado durante este estado.
 	method surtirEfecto(personaje)  {}
-	method efectoBonusHp(personaje) {}
+	method efectoDeBonusHp(personaje) {}
 }
 
-
+object muerto {
+	method surtirEfecto(personaje)  { game.say(personaje, "memurí") }
+	method efectoDeBonusHp(personaje) {/* POLIMORFISMO */}
+}

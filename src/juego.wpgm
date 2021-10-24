@@ -9,7 +9,6 @@ program juego {
 	nivel1.iniciar()
 	game.height(15)
 	game.width(15)
-	game.boardGround("Fondo/fondo2.png")
 	game.showAttributes(personajePrincipal)
 	game.start()
 }

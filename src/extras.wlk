@@ -6,8 +6,7 @@ import sonidos.*
 
 class Fantasma {
 	var property position
-	
-	method image() = "Fantasma/CharacterGhost.png"
+	const property image = "Fantasma/CharacterGhost.png"
 	
 	method movete(){
    	  	var nuevaX = position.x() + self.pasoAleatorio()
@@ -28,8 +27,7 @@ class Fantasma {
 
 class Zombie {
 	var property position
-	
-	method image() = "Zombie/CharacterZombi.png"
+	const property image = "Zombie/CharacterZombi.png"
 		
 	
  	method movete(){
@@ -51,17 +49,34 @@ class Zombie {
 
 object cueva {
 	var property position = game.at(13,13)
+	const property image = "Cueva/CuevaClara.PNG"
 	
-	method image() ="Cueva/CuevaClara.PNG"
 	method chocarCon(personaje){ personaje.entrarACueva() }
 }
 
 
+
+object cueva2 {
+	
+//TODO: Hacer que Ricky aparezca en la posición de la casa!
+
+	var property position = game.origin()
+	const property image = "Cueva/CuevaOscura.PNG"
+	
+	method chocarCon(personaje){ 
+		self.irATutorial()
+	}
+		
+	method irATutorial() { 
+		game.clear()
+		tutorial.iniciar() 
+	}
+}
+
 class Arana {
 	
 	var property position = game.at(6,8)
-	
-	method image() = "Araña/araña.png"
+	const property image = "Araña/araña.png"
 	
 	method chocarCon(personaje) {}
 	
@@ -73,6 +88,22 @@ class Arana {
 	}
 }
 
+object casaEmbrujada {
+	
+//TODO: Hacer que Ricky aparezca en la posición de la (futura) puerta!
+
+	const property position = game.at(1, 8)
+	const property image = "Casa/CASA EMBRUJADA.png"
+	
+	method chocarCon(personaje){
+		self.irAnivel1()
+	}
+	
+	method irAnivel1(){
+		game.clear()
+		nivel1.iniciar()
+	}
+}
 
 
 
