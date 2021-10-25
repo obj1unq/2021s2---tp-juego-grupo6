@@ -67,6 +67,7 @@ object personajePrincipal {
 	method abrirPuerta(puerta){
 		self.validarSiHayLlave()
 		puerta.fueAbierta()
+        self.terminar()
 	}
 	
 /********** COLISIONES ********/

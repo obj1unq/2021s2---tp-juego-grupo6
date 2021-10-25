@@ -20,7 +20,7 @@ object bonusHp {
 object bonusRegeneracion {
 	var property position = game.at(7,9)
 	
-	method image() = "pepita.png"
+	method image() = "pepita.png" //Cambiar pepita por un bonus
 	
 	method chocarCon(personaje) {
 		regeneracion.reproducir()
