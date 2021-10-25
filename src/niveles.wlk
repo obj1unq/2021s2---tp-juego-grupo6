@@ -12,7 +12,22 @@ object tutorial {
 		config.configurarColisiones()
 	}
 }	
-
+object nivel2 {
+	method iniciar(){
+		const fantasma = new Fantasma(position = game.at(4,3))
+		const puerta = new Puerta (position = game.at(12,12))
+		const llave = new Llave (position = game.at(7,9))
+		game.addVisual(fantasma)
+		game.addVisual(puerta)
+		game.addVisual(llave)
+		game.addVisual(personajePrincipal)
+		game.boardGround("fondo/fondo2.png")
+		config.configuracionDeTeclas()
+		config.configurarColisiones()
+		config.configurarMovimiento(fantasma,200)
+	}
+	
+}
 object nivel1{
 
 // TODO: AGREGAR MUSICA
@@ -24,6 +39,7 @@ object nivel1{
 		const zombie   = new Zombie(position = game.at(2,4))   // Esta constante nos da un objeto zombie.
 		const zaramay  = new Fantasma(position = game.at(6,7)) // xd
 		const arana1   = new Arana()
+
 		
 	/********** VISUALS DEL NIVEL********/
 		game.addVisual(cueva2)
@@ -45,6 +61,7 @@ object nivel1{
 		config.configurarMovimiento(zaramay, 100)
 		config.configurarMovimiento(arana1, 700)
 	}
+	
 
 //TODO: configurar validación de existencia de bonus ▼ ▼ ▼
 

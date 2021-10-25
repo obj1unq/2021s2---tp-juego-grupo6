@@ -46,7 +46,28 @@ class Zombie {
    method pasoAleatorio() = if ( 0.randomUpTo(2) >= 1 ) 1 else -1
 }
 
+class Llave {
+	const property position
+	const property image = "Llaves/Llave1.png"
+	
+	
+	method chocarCon(personaje){personaje.agregarLlave(self)}
+	
+}
 
+class Puerta{
+	const property position
+	var property estaAbierta = false
+	
+	method image(){return if(!estaAbierta){"Puertas/puertaCerrada1.png"} else {"Puertas/puertaAbierta.png"}}
+	
+	method chocarCon(personaje){personaje.abrirPuerta(self)}
+	
+	method fueAbierta(){
+		estaAbierta = true
+	}
+	
+}
 object cueva {
 	var property position = game.at(13,13)
 	const property image = "Cueva/CuevaClara.PNG"

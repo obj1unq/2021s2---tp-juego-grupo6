@@ -25,6 +25,7 @@ object personajePrincipal {
     var property vitalidad = 100
 	var property estado = normal
     var property direccion = derecha
+    var property llavesEncontradas = #{}
 
     method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
     
@@ -37,6 +38,7 @@ object personajePrincipal {
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto()) { self.error("¡Ojalá pudiera!") } }
 	method validarVida()  {if (self.estaMuerto()) { self.terminar() } }
+	method validarSiHayLlave(){if (llavesEncontradas.isEmpty()){self.error("No tengo la llave!")}}
 
 /********** ACCIONES **********/
 	method mover(_direccion){ 
@@ -57,6 +59,16 @@ object personajePrincipal {
 		game.schedule(2000, {opcionDeSalir.text("Presione ENTER para salir")})
 	}
 	
+	method agregarLlave(llave){
+		llavesEncontradas.add(llave)
+		game.removeVisual(llave)
+	}
+	
+	method abrirPuerta(puerta){
+		self.validarSiHayLlave()
+		puerta.fueAbierta()
+	}
+	
 /********** COLISIONES ********/
     method estaEnLaMismaPosicion(algo) = position == algo.position()
    	method chocoConLaCueva() = self.estaEnLaMismaPosicion(cueva)
@@ -64,6 +76,7 @@ object personajePrincipal {
 //	BONUS
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
     method efectoDeEstado(){ estado.surtirEfecto(self) }
+
 }
 
 /********** CARTELES ********/
