@@ -99,7 +99,10 @@ class Arana {
 	var property position = game.at(6,8)
 	const property image = "Araña/araña.png"
 	
-	method chocarCon(personaje) {}
+	method chocarCon(personaje) {
+		personaje.estado(paralizado)
+		personaje.efectoDeEstado()
+	}
 	
 	method movete() {
     	const x = 0.randomUpTo(game.width()).truncate(0)

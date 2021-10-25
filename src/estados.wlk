@@ -23,11 +23,15 @@ object infectado {
 	 method efectoDeBonusHp(personaje){ game.removeTickEvent("DAÑODEINFECCION") }
 }
 
-object paralizado {
+object paralizado { //cuando choca con la araña se paraliza
  	
-	method surtirEfecto(personaje) {}
+	method surtirEfecto(personaje) {
+		game.schedule(5000, {personaje.estado(normal)})//pasa 5 segundos paralizado, y después vuelve a normalidad
+	}
+	
 	method efectoDeBonusHp(personaje) {}
 }
+
 
 // estados positivos.
 
@@ -48,13 +52,16 @@ object regenerando {
 	method efectoDeBonusHp(personaje) {/* POLIMORFISMO */}
 }
 
-object inquebrantable { 	
-	// TODO: hacer que no pueda ser afectado durante este estado.
-	method surtirEfecto(personaje)  {}
-	method efectoDeBonusHp(personaje) {}
-}
 
 object muerto {
 	method surtirEfecto(personaje)  { game.say(personaje, "memurí") }
 	method efectoDeBonusHp(personaje) {/* POLIMORFISMO */}
 }
+
+
+
+
+
+
+
+

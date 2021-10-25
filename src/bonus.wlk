@@ -30,4 +30,16 @@ object bonusRegeneracion {
 	}
 }
 
+
+
+
+
+
 // TODO: Agregar diferentes tipos de bonus.
+
+
+
+
+
+
+
