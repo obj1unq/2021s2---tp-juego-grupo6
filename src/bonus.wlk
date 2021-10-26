@@ -44,3 +44,4 @@ object bonusRegeneracion inherits Bonus {
 // TODO: Agregar diferentes tipos de bonus.
 
 // TODO: Aplicar aparición aleatoria.
+

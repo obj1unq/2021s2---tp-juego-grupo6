@@ -12,3 +12,9 @@ program juego {
 	game.showAttributes(personajePrincipal)
 	game.start()
 }
+
+
+
+
+
+

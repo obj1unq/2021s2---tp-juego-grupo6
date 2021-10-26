@@ -86,6 +86,9 @@ object config{
 		keyboard.s().onPressDo( { personajePrincipal.mover(abajo)  	  })
 		keyboard.a().onPressDo( { personajePrincipal.mover(izquierda) })
 		keyboard.d().onPressDo( { personajePrincipal.mover(derecha)   })
+		
+		//Cuando el personaje toca la 'z' se vuelve en 3seg
+		keyboard.z().onPressDo( { personajePrincipal.activarCapaProtectora()})
 	}
 
 	method configurarColisiones() {
