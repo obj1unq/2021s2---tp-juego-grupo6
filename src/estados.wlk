@@ -32,7 +32,6 @@ object paralizado { //cuando choca con la araña se paraliza
 	method efectoDeBonusHp(personaje) {}
 }
 
-
 // estados positivos.
 
 object normal {

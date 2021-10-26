@@ -42,15 +42,12 @@ object nivel1{
 
 		
 	/********** VISUALS DEL NIVEL********/
-		game.addVisual(cueva2)
-		game.addVisual(visual1)
-		game.addVisual(cueva)
 		game.addVisual(personajePrincipal)
 		game.addVisual(zombie)
 		game.addVisual(fantasma)
 		game.addVisual(zaramay)
 		game.addVisual(arana1)
-		//game.boardGround("Fondo/fondo2.png")
+		game.boardGround("Fondo/fondo2.png")
 		self.addBonus(5000, bonusHp)
 		self.addBonus(4000, bonusRegeneracion)
 
@@ -64,14 +61,9 @@ object nivel1{
 	}
 	
 
-//TODO: configurar validación de existencia de bonus ▼ ▼ ▼
-
-
 	method addBonus(tiempo, bonus) {
 		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })
 }
-
-	
 
 
 object config{
@@ -88,7 +80,7 @@ object config{
 		keyboard.d().onPressDo( { personajePrincipal.mover(derecha)   })
 		
 		//Cuando el personaje toca la 'z' se vuelve en 3seg
-		keyboard.z().onPressDo( { personajePrincipal.activarCapaProtectora()})
+		keyboard.z().onPressDo( { personajePrincipal.activarCapaProtectora() })
 	}
 
 	method configurarColisiones() {

@@ -58,12 +58,6 @@ object personajePrincipal {
 		self.irA(_direccion.siguiente(self.position()))
 	}
 	
-	method entrarACueva() {
-		game.say(self, 'LLEGUÉ A LA CUEVA!')
-		game.schedule(650, {game.removeVisual(self)})
-		self.terminar()
-	}
-	
 	method terminar() { 
 		game.addVisual(opcionDeSalir)
 		keyboard.enter().onPressDo({game.stop()})
@@ -81,13 +75,9 @@ object personajePrincipal {
         self.terminar()
 	}
 	
-/********** COLISIONES ********/
-    method estaEnLaMismaPosicion(algo) = position == algo.position()
-   	method chocoConLaCueva() = self.estaEnLaMismaPosicion(cueva)
     
-//	BONUS
+/********** BONUS ********/
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
-    
 	method efectoDeEstado(){ self.validarAccionDeEfecto(); estado.surtirEfecto(self) }
 
 

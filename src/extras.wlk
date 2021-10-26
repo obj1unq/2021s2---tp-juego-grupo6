@@ -17,10 +17,12 @@ class Fantasma {
 	}
 	
 	method chocarCon(personaje){
+		if(!personaje.estaInquebrantable()) {
 		susto.reproducir()
 		personaje.estado(asustado)
 		personaje.efectoDeEstado()
 	}
+}
 	
 	method pasoAleatorio() = if ( 0.randomUpTo(2) >= 1 ) 1 else -1
 }
@@ -38,10 +40,12 @@ class Zombie {
     }
   
    method chocarCon(personaje){
-   	    infeccion.reproducir()
-   	    personaje.estado(infectado)
-		personaje.efectoDeEstado()
+   		if(!personaje.estaInquebrantable()) {
+   	    	infeccion.reproducir()
+   	    	personaje.estado(infectado)
+			personaje.efectoDeEstado()
    }
+}
    
    method pasoAleatorio() = if ( 0.randomUpTo(2) >= 1 ) 1 else -1
 }
@@ -68,31 +72,6 @@ class Puerta{
 	}
 	
 }
-object cueva {
-	var property position = game.at(13,13)
-	const property image = "Cueva/CuevaClara.PNG"
-	
-	method chocarCon(personaje){ personaje.entrarACueva() }
-}
-
-
-
-object cueva2 {
-	
-//TODO: Hacer que Ricky aparezca en la posición de la casa!
-
-	var property position = game.origin()
-//	const property image = "Cueva/CuevaOscura.PNG"
-	
-	method chocarCon(personaje){ 
-		self.irATutorial()
-	}
-		
-	method irATutorial() { 
-		game.clear()
-		tutorial.iniciar() 
-	}
-}
 
 class Arana {
 	
@@ -100,9 +79,11 @@ class Arana {
 	const property image = "Araña/araña.png"
 	
 	method chocarCon(personaje) {
-		personaje.estado(paralizado)
-		personaje.efectoDeEstado()
+		if(!personaje.estaInquebrantable()) {
+			personaje.estado(paralizado)
+			personaje.efectoDeEstado()
 	}
+}
 	
 	method movete() {
     	const x = 0.randomUpTo(game.width()).truncate(0)
