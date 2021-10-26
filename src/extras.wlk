@@ -82,7 +82,7 @@ object cueva2 {
 //TODO: Hacer que Ricky aparezca en la posición de la casa!
 
 	var property position = game.origin()
-	const property image = "Cueva/CuevaOscura.PNG"
+//	const property image = "Cueva/CuevaOscura.PNG"
 	
 	method chocarCon(personaje){ 
 		self.irATutorial()
@@ -122,10 +122,17 @@ object casaEmbrujada {
 	
 	method irAnivel1(){
 		game.clear()
+		//game.addVisual(visual1)
 		nivel1.iniciar()
 	}
 }
 
+object visual1 {
+	const property position = game.at(0, 0)
+	const property image = "Fondo/Fondo2.png"
+	
+	method chocarCon(personaje){}
+}
 
 
 

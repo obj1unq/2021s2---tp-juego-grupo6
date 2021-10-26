@@ -6,7 +6,7 @@ import estados.*
 
 program juego {
 	game.title("Ricky´s Adventures")
-	nivel2.iniciar()
+	nivel1.iniciar()
 	game.height(15)
 	game.width(15)
 	game.showAttributes(personajePrincipal)

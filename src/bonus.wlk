@@ -5,7 +5,18 @@ import personajePrincipal.*
 import wollok.game.*
 import sonidos.*
 
-object bonusHp {
+class Bonus {
+	
+	method aparecer(){
+	
+		if(game.getObjectsIn(self.position()).isEmpty() and !game.hasVisual(self))
+			{ game.addVisual(self) }
+	}
+	
+	method position()
+}
+
+object bonusHp inherits Bonus {
 	var property position = game.at(5,7)
 	
 	method image() = "Bonus/bonusHP.png"
@@ -17,10 +28,10 @@ object bonusHp {
 	}
 }
 
-object bonusRegeneracion {
+object bonusRegeneracion inherits Bonus {
 	var property position = game.at(7,9)
 	
-	method image() = "pepita.png" //Cambiar pepita por un bonus
+	method image() = "pepita.png" // Cambiar pepita por un bonus
 	
 	method chocarCon(personaje) {
 		regeneracion.reproducir()
@@ -31,3 +42,5 @@ object bonusRegeneracion {
 }
 
 // TODO: Agregar diferentes tipos de bonus.
+
+// TODO: Aplicar aparición aleatoria.

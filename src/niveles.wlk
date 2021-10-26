@@ -7,7 +7,7 @@ object tutorial {
 	method iniciar() {
 		game.addVisual(casaEmbrujada)
 		game.addVisual(personajePrincipal)
-		game.boardGround("silent hill.JPG")
+		game.boardGround("silent.JPG")
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 	}
@@ -20,8 +20,8 @@ object nivel2 {
 		game.addVisual(fantasma)
 		game.addVisual(puerta)
 		game.addVisual(llave)
-		game.addVisual(personajePrincipal)
 		game.boardGround("fondo/fondo2.png")
+		game.addVisual(personajePrincipal)
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimiento(fantasma,200)
@@ -43,13 +43,14 @@ object nivel1{
 		
 	/********** VISUALS DEL NIVEL********/
 		game.addVisual(cueva2)
+		game.addVisual(visual1)
 		game.addVisual(cueva)
 		game.addVisual(personajePrincipal)
 		game.addVisual(zombie)
 		game.addVisual(fantasma)
 		game.addVisual(zaramay)
 		game.addVisual(arana1)
-		game.boardGround("Fondo/fondo2.png")
+		//game.boardGround("Fondo/fondo2.png")
 		self.addBonus(5000, bonusHp)
 		self.addBonus(4000, bonusRegeneracion)
 
@@ -67,15 +68,10 @@ object nivel1{
 
 
 	method addBonus(tiempo, bonus) {
-		const position = bonus.position()
-		
-		if(game.getObjectsIn(position).isEmpty()) {
-			return game.onTick(tiempo, "GenerarBonus", {game.addVisual(bonus)})
-		}
-		else { return self.emptyPosition() }
-	}
-
+		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })
 }
+
+	
 
 
 object config{
@@ -87,8 +83,8 @@ object config{
 		keyboard.right().onPressDo({ personajePrincipal.mover(derecha)   })
 		
 		keyboard.w().onPressDo( { personajePrincipal.mover(arriba)    })
-		keyboard.a().onPressDo( { personajePrincipal.mover(izquierda) })
 		keyboard.s().onPressDo( { personajePrincipal.mover(abajo)  	  })
+		keyboard.a().onPressDo( { personajePrincipal.mover(izquierda) })
 		keyboard.d().onPressDo( { personajePrincipal.mover(derecha)   })
 	}
 
