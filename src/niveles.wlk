@@ -14,17 +14,24 @@ object tutorial {
 }	
 object nivel2 {
 	method iniciar(){
-		const fantasma = new Fantasma(position = game.at(4,3))
+		const fantasma1 = new Fantasma(position = game.at(4,3))
+		const fantasma2 = new Fantasma(position = game.at(8,11))
+		const fantasma3 = new Fantasma(position = game.at(12,7))
 		const puerta = new Puerta (position = game.at(12,12))
 		const llave = new Llave (position = game.at(7,9))
-		game.addVisual(fantasma)
+		
+		game.addVisual(fantasma1)
+		game.addVisual(fantasma2)
+		game.addVisual(fantasma3)
 		game.addVisual(puerta)
 		game.addVisual(llave)
 		game.boardGround("fondo/fondo2.png")
 		game.addVisual(personajePrincipal)
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
-		config.configurarMovimiento(fantasma,200)
+		config.configurarMovimiento(fantasma1,200)
+		config.configurarMovimiento(fantasma2,400)
+		config.configurarMovimiento(fantasma3,300)
 	}
 	
 }
@@ -66,7 +73,7 @@ object nivel1{
 }
 
 
-object config{
+object config {
 	
 	method configuracionDeTeclas(){
 		keyboard.up().onPressDo({ personajePrincipal.mover(arriba) 		 })
