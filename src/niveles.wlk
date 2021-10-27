@@ -12,29 +12,8 @@ object tutorial {
 		config.configurarColisiones()
 	}
 }	
-object nivel2 {
-	method iniciar(){
-		const fantasma1 = new Fantasma(position = game.at(4,3))
-		const fantasma2 = new Fantasma(position = game.at(8,11))
-		const fantasma3 = new Fantasma(position = game.at(12,7))
-		const puerta = new Puerta (position = game.at(12,12))
-		const llave = new Llave (position = game.at(7,9))
-		
-		game.addVisual(fantasma1)
-		game.addVisual(fantasma2)
-		game.addVisual(fantasma3)
-		game.addVisual(puerta)
-		game.addVisual(llave)
-		game.boardGround("fondo/fondo2.png")
-		game.addVisual(personajePrincipal)
-		config.configuracionDeTeclas()
-		config.configurarColisiones()
-		config.configurarMovimiento(fantasma1,200)
-		config.configurarMovimiento(fantasma2,400)
-		config.configurarMovimiento(fantasma3,300)
-	}
-	
-}
+
+
 object nivel1{
 
 // TODO: AGREGAR MUSICA
@@ -69,8 +48,71 @@ object nivel1{
 	
 
 	method addBonus(tiempo, bonus) {
-		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })
+		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })	
+	}
+	
 }
+
+
+
+object nivel2 {  //HABITACIÓN DE FANTASMAS
+	method iniciar(){
+		const fantasma1 = new Fantasma(position = game.at(4,3))
+		const fantasma2 = new Fantasma(position = game.at(8,11))
+		const fantasma3 = new Fantasma(position = game.at(12,7))
+		const puerta = new Puerta (position = game.at(12,12))
+		const llave = new Llave (position = game.at(7,9))
+		
+		game.addVisual(fantasma1)
+		game.addVisual(fantasma2)
+		game.addVisual(fantasma3)
+		game.addVisual(puerta)
+		game.addVisual(llave)
+		game.boardGround("fondo/fondo2.png")
+		game.addVisual(personajePrincipal)
+		config.configuracionDeTeclas()
+		config.configurarColisiones()
+		config.configurarMovimiento(fantasma1,200)
+		config.configurarMovimiento(fantasma2,400)
+		config.configurarMovimiento(fantasma3,300)
+	}
+	
+}
+
+
+object nivel3 {  //HABITACIÓN DE ARAÑAS
+	method iniciar(){
+		const arana1 = new Arana 
+		const arana2 = new Arana (position = game.at(5,6))
+		const arana3 = new Arana (position = game.at(0,3))
+		const puerta = new Puerta (position = game.at(12,12))
+		const llave = new Llave (position = game.at(7,9))
+		
+		game.addVisual(arana1)
+		game.addVisual(arana2)
+		game.addVisual(arana3)
+		game.addVisual(puerta)
+		game.addVisual(llave)
+		//cartel para informar 
+		//game.addVisual(cartelInformativo)
+
+		game.boardGround("fondo/fondo2.png")
+		game.addVisual(personajePrincipal)
+		
+		config.configuracionDeTeclas()
+		config.configurarColisiones()
+		config.configurarMovimiento(arana1,700)
+		config.configurarMovimiento(arana2,700)
+		config.configurarMovimiento(arana3,00)
+	}
+	
+	method addBonus(tiempo, bonus) {
+		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })	
+	}
+	
+}
+
+
 
 
 object config {
@@ -97,7 +139,13 @@ object config {
 	method configurarMovimiento(enemigo, tiempo){
 		game.onTick(tiempo, "MOVIMIENTOS", { enemigo.movete() })
 	}
+	
+
 }
+
+
+
+
 
 /********* COLORES ********/
 
@@ -106,3 +154,8 @@ object colores {
 	const property rojo = "FF0000FF"
 	const property cyan = "00FFFFFF"
 }
+
+
+
+
+

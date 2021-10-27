@@ -26,7 +26,7 @@ object personajePrincipal {
 	var property estado = normal
     var property direccion = derecha
     var property llavesEncontradas = #{}
-	var property tengoCapaProtectora = false
+	var property tieneCapaProtectora = false
 	
     method image() = "Personaje/Ricky-" + estado.toString() + direccion.toString() + ".png"
     
@@ -37,19 +37,18 @@ object personajePrincipal {
     method regenerarVida(cantidad) { vitalidad += cantidad }
     
     method activarCapaProtectora() {
-    	self.tengoCapaProtectora(true)
-    	game.schedule(3000, {self.tengoCapaProtectora(false)})
+    	self.tieneCapaProtectora(true)
+    	game.schedule(3000, {self.tieneCapaProtectora(false)})
     }
     
 	method estaParalizado() { return estado == paralizado }
-	method estaInquebrantable() { return self.tengoCapaProtectora() }
 	
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto() or self.estaParalizado()) { self.error("¡Ojalá pudiera!") } }
 	method validarVida()  {if (self.estaMuerto()) { self.terminar() } }
 	method validarSiHayLlave() {if (llavesEncontradas.isEmpty()){self.error("No tengo la llave!")}}
 	
-	method validarAccionDeEfecto() { if (self.estaInquebrantable()) {self.error("Soy invencible")} }	
+	method validarAccionDeEfecto() { if (self.tieneCapaProtectora()) {self.error("Soy invencible")} }	
 
 /********** ACCIONES **********/
 	method mover(_direccion){ 

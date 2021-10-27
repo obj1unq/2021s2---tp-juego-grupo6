@@ -17,7 +17,7 @@ class Fantasma {
 	}
 	
 	method chocarCon(personaje){
-		if(!personaje.estaInquebrantable()) {
+		if(!personaje.tieneCapaProtectora()) {
 		susto.reproducir()
 		personaje.estado(asustado)
 		personaje.efectoDeEstado()
@@ -40,7 +40,7 @@ class Zombie {
     }
   
    method chocarCon(personaje){
-   		if(!personaje.estaInquebrantable()) {
+   		if(!personaje.tieneCapaProtectora()){
    	    	infeccion.reproducir()
    	    	personaje.estado(infectado)
 			personaje.efectoDeEstado()
@@ -79,7 +79,7 @@ class Arana {
 	const property image = "Araña/araña.png"
 	
 	method chocarCon(personaje) {
-		if(!personaje.estaInquebrantable()) {
+		if(!personaje.tieneCapaProtectora()) {
 			personaje.estado(paralizado)
 			personaje.efectoDeEstado()
 	}
@@ -118,6 +118,16 @@ object visual1 {
 	method chocarCon(personaje){}
 }
 
+/* 
+object cartelInformativo {
+	const property position = game.at(12,12)
+	
+	method text () { game.say(self, "Toca la letra Z para volverte invencible")}
+	method textColor() {colores.verde()}
+	method chocarCon(personaje) {}
 
+}
+
+*/
 
 
