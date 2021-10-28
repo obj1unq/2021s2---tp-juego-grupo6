@@ -1,10 +1,10 @@
-# Nombre del juego (<- borrar y completar)
+## Ricky´s Adventures
 
 ## Equipo de desarrollo
-
-- Alguien
-- Persona
-- etc.
+-
+-
+- Ignacio Pablo
+- Valentina Reigada
 
 ## Capturas
 
