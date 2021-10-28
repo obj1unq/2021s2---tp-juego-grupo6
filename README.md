@@ -2,8 +2,8 @@
 
 ## Equipo de desarrollo
 -
--
 - Ignacio Pablo
+- Julian Navarro
 - Valentina Reigada
 
 ## Capturas
