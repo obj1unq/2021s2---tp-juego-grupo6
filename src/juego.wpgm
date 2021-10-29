@@ -3,10 +3,11 @@ import personajePrincipal.*
 import extras.*
 import niveles.*
 import estados.*
+import puertasYLlaves.*
 
 program juego {
 	game.title("Ricky´s Adventures")
-	nivel3.iniciar()
+	tutorial.iniciar()
 	game.height(15)
 	game.width(15)
 	game.showAttributes(personajePrincipal)

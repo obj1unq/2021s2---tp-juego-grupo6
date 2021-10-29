@@ -46,7 +46,7 @@ object personajePrincipal {
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto() or self.estaParalizado()) { self.error("¡Ojalá pudiera!") } }
 	method validarVida()  {if (self.estaMuerto()) { self.terminar() } }
-	method validarSiHayLlave() {if (llavesEncontradas.isEmpty()){self.error("No tengo la llave!")}}
+	method validarLlave(llave) {if (!llavesEncontradas.contains(llave)){self.error("No tengo la llave!")}}
 	
 	method validarAccionDeEfecto() { if (self.tieneCapaProtectora()) {self.error("Soy invencible")} }	
 
@@ -69,9 +69,7 @@ object personajePrincipal {
 	}
 	
 	method abrirPuerta(puerta){
-		self.validarSiHayLlave()
 		puerta.fueAbierta()
-        self.terminar()
 	}
 	
     

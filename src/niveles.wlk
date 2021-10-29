@@ -2,6 +2,7 @@ import personajePrincipal.*
 import extras.*
 import wollok.game.*
 import bonus.*
+import puertasYLlaves.*
 
 object tutorial {
 	method iniciar() {
@@ -13,37 +14,58 @@ object tutorial {
 	}
 }	
 
+object salonDeLaCasa {
+	method iniciar(){
+		const puerta1 = new PuertaNivel1 (position = game.at(1,6))
+		const puerta2 = new PuertaNivel2 (position = game.at(6,6))
+		const puerta3 = new PuertaNivel3 (position = game.at(11,6))
+		const llave1  = new Llave (position = game.at(11,1))
+		game.addVisual(visual2)
+		game.addVisual(puerta1)
+		game.addVisual(puerta2)
+		game.addVisual(puerta3)
+		game.addVisual(llave1)
+		game.addVisual(personajePrincipal)
+		config.configuracionDeTeclas()
+		config.configurarColisiones()	
+		
+			}
+	
+}
 
-object nivel1{
+object nivel1{ // habitación de zombies.
 
 // TODO: AGREGAR MUSICA
 	
 	method iniciar(){
 
 	/********** ENEMIGOS DEL NIVEL ********/
-		const fantasma = new Fantasma(position = game.at(4,3)) // Esta constante nos da un objeto fantasma.
-		const zombie   = new Zombie(position = game.at(2,4))   // Esta constante nos da un objeto zombie.
-		const zaramay  = new Fantasma(position = game.at(6,7)) // xd
-		const arana1   = new Arana()
+		
+		const zombie1   = new Zombie(position = game.at(2,4))
+		const zombie2  = new Zombie(position = game.at(4,4)) 
+		const zombie3   = new Zombie(position = game.at(7,4)) 
+		const zombie4  = new Zombie(position = game.at(11,4))    
+		const puerta   = new PuertaSalon (position = game.origin())
 
 		
 	/********** VISUALS DEL NIVEL********/
+	    game.addVisual(visual1)
+	    game.addVisual(puerta)
 		game.addVisual(personajePrincipal)
-		game.addVisual(zombie)
-		game.addVisual(fantasma)
-		game.addVisual(zaramay)
-		game.addVisual(arana1)
-		game.boardGround("Fondo/fondo2.png")
+		game.addVisual(zombie1)
+		game.addVisual(zombie2)
+		game.addVisual(zombie3)
+		game.addVisual(zombie4)
+		
 		self.addBonus(5000, bonusHp)
-		self.addBonus(4000, bonusRegeneracion)
 
 /********** CONFIGURACIONES DEL NIVEL ********/
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
-		config.configurarMovimiento(fantasma, 100)
-		config.configurarMovimiento(zombie, 200)
-		config.configurarMovimiento(zaramay, 100)
-		config.configurarMovimiento(arana1, 700)
+		config.configurarMovimiento(zombie1, 100)
+		config.configurarMovimiento(zombie2, 200)
+		config.configurarMovimiento(zombie3, 400)
+		config.configurarMovimiento(zombie4, 700)
 	}
 	
 
@@ -60,21 +82,31 @@ object nivel2 {  //HABITACIÓN DE FANTASMAS
 		const fantasma1 = new Fantasma(position = game.at(4,3))
 		const fantasma2 = new Fantasma(position = game.at(8,11))
 		const fantasma3 = new Fantasma(position = game.at(12,7))
-		const puerta = new Puerta (position = game.at(12,12))
 		const llave = new Llave (position = game.at(7,9))
+		const puerta   = new PuertaSalon (position = game.origin())
 		
+		game.addVisual(visual1)
 		game.addVisual(fantasma1)
 		game.addVisual(fantasma2)
 		game.addVisual(fantasma3)
 		game.addVisual(puerta)
 		game.addVisual(llave)
-		game.boardGround("fondo/fondo2.png")
+		
+		
 		game.addVisual(personajePrincipal)
+		
+		self.addBonus(3000, bonusRegeneracion)
+		
+		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimiento(fantasma1,200)
 		config.configurarMovimiento(fantasma2,400)
 		config.configurarMovimiento(fantasma3,300)
+	}
+	
+	method addBonus(tiempo, bonus) {
+		game.onTick(tiempo, "GenerarBonus" + bonus.toString(), { bonus.aparecer() })	
 	}
 	
 }
@@ -85,9 +117,11 @@ object nivel3 {  //HABITACIÓN DE ARAÑAS
 		const arana1 = new Arana 
 		const arana2 = new Arana (position = game.at(5,6))
 		const arana3 = new Arana (position = game.at(0,3))
-		const puerta = new Puerta (position = game.at(12,12))
+		const puerta = new PuertaSalon (position = game.origin())
 		const llave = new Llave (position = game.at(7,9))
 		
+		
+		game.addVisual(visual1)
 		game.addVisual(arana1)
 		game.addVisual(arana2)
 		game.addVisual(arana3)
@@ -96,14 +130,17 @@ object nivel3 {  //HABITACIÓN DE ARAÑAS
 		//cartel para informar 
 		//game.addVisual(cartelInformativo)
 
-		game.boardGround("fondo/fondo2.png")
+		
 		game.addVisual(personajePrincipal)
+		
+		self.addBonus(5000, bonusHp)
+		self.addBonus(3000, bonusRegeneracion)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimiento(arana1,700)
 		config.configurarMovimiento(arana2,700)
-		config.configurarMovimiento(arana3,00)
+		config.configurarMovimiento(arana3,700)
 	}
 	
 	method addBonus(tiempo, bonus) {

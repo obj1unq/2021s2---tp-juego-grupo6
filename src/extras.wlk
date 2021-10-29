@@ -3,6 +3,7 @@ import wollok.game.*
 import niveles.*
 import estados.*
 import sonidos.*
+import puertasYLlaves.*
 
 class Fantasma {
 	var property position
@@ -50,28 +51,7 @@ class Zombie {
    method pasoAleatorio() = if ( 0.randomUpTo(2) >= 1 ) 1 else -1
 }
 
-class Llave {
-	const property position
-	const property image = "Llaves/Llave1.png"
-	
-	
-	method chocarCon(personaje){personaje.agregarLlave(self)}
-	
-}
 
-class Puerta{
-	const property position
-	var property estaAbierta = false
-	
-	method image(){return if(!estaAbierta){"Puertas/puertaCerrada1.png"} else {"Puertas/puertaAbierta.png"}}
-	
-	method chocarCon(personaje){personaje.abrirPuerta(self)}
-	
-	method fueAbierta(){
-		estaAbierta = true
-	}
-	
-}
 
 class Arana {
 	
@@ -101,19 +81,26 @@ object casaEmbrujada {
 	const property image = "Casa/CASA EMBRUJADA.png"
 	
 	method chocarCon(personaje){
-		self.irAnivel1()
+		self.irASalaPrincipal()
 	}
 	
-	method irAnivel1(){
+	method irASalaPrincipal(){
 		game.clear()
 		//game.addVisual(visual1)
-		nivel1.iniciar()
+		salonDeLaCasa.iniciar()
 	}
 }
 
 object visual1 {
-	const property position = game.at(0, 0)
-	const property image = "Fondo/Fondo2.png"
+	const property position = game.origin()
+	const property image = "Fondo/FondoHabitacion.jpg"
+	
+	method chocarCon(personaje){}
+}
+
+object visual2{
+	const property position = game.origin()
+	const property image = "Fondo/fondoSalon.jpg"
 	
 	method chocarCon(personaje){}
 }
