@@ -4,51 +4,47 @@ import wollok.game.*
 import bonus.*
 import puertasYLlaves.*
 
+/************* NIVELES ************/
+
 object tutorial {
 	method iniciar() {
 		game.addVisual(casaEmbrujada)
 		game.addVisual(personajePrincipal)
-		game.boardGround("silent.JPG")
+		game.boardGround("silent.jpg")
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 	}
 }	
 
 object salonDeLaCasa {
+						// TODO: AGREGAR MUSICA
 	method iniciar(){
 		const puerta1 = new PuertaNivel1 (position = game.at(1,6))
 		const puerta2 = new PuertaNivel2 (position = game.at(6,6))
 		const puerta3 = new PuertaNivel3 (position = game.at(11,6))
 		const llave1  = new Llave (position = game.at(11,1))
+		
 		game.addVisual(visual2)
 		game.addVisual(puerta1)
 		game.addVisual(puerta2)
 		game.addVisual(puerta3)
 		game.addVisual(llave1)
 		game.addVisual(personajePrincipal)
-		config.configuracionDeTeclas()
-		config.configurarColisiones()	
 		
-			}
-	
+		config.configuracionDeTeclas()
+		config.configurarColisiones()
+	}
 }
 
-object nivel1{ // habitación de zombies.
-
-// TODO: AGREGAR MUSICA
-	
+object nivel1{ 
+				// HABITACIÓN DE ZOMBIES
 	method iniciar(){
+		const zombie1 = new Zombie(position = game.at(2,4))
+		const zombie2 = new Zombie(position = game.at(4,4)) 
+		const zombie3 = new Zombie(position = game.at(7,4)) 
+		const zombie4 = new Zombie(position = game.at(11,4))    
+		const puerta  = new PuertaSalon (position = game.origin())
 
-	/********** ENEMIGOS DEL NIVEL ********/
-		
-		const zombie1   = new Zombie(position = game.at(2,4))
-		const zombie2  = new Zombie(position = game.at(4,4)) 
-		const zombie3   = new Zombie(position = game.at(7,4)) 
-		const zombie4  = new Zombie(position = game.at(11,4))    
-		const puerta   = new PuertaSalon (position = game.origin())
-
-		
-	/********** VISUALS DEL NIVEL********/
 	    game.addVisual(visual1)
 	    game.addVisual(puerta)
 		game.addVisual(personajePrincipal)
@@ -57,33 +53,30 @@ object nivel1{ // habitación de zombies.
 		game.addVisual(zombie3)
 		game.addVisual(zombie4)
 		
-		self.addBonus(5000, bonusHp)
-
-/********** CONFIGURACIONES DEL NIVEL ********/
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimiento(zombie1, 100)
 		config.configurarMovimiento(zombie2, 200)
 		config.configurarMovimiento(zombie3, 400)
 		config.configurarMovimiento(zombie4, 700)
+		self.agregarBonus(5000, bonusHp)
 	}
 	
-
-	method addBonus(tiempo, bonus) {
+	method agregarBonus(tiempo, bonus) {
 		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })	
 	}
-	
 }
 
 
 
-object nivel2 {  //HABITACIÓN DE FANTASMAS
+object nivel2 {  
+				// HABITACIÓN DE FANTASMAS
 	method iniciar(){
 		const fantasma1 = new Fantasma(position = game.at(4,3))
 		const fantasma2 = new Fantasma(position = game.at(8,11))
 		const fantasma3 = new Fantasma(position = game.at(12,7))
-		const llave = new Llave (position = game.at(7,9))
-		const puerta   = new PuertaSalon (position = game.origin())
+		const llave 	= new Llave (position = game.at(7,9))
+		const puerta    = new PuertaSalon (position = game.origin())
 		
 		game.addVisual(visual1)
 		game.addVisual(fantasma1)
@@ -91,35 +84,30 @@ object nivel2 {  //HABITACIÓN DE FANTASMAS
 		game.addVisual(fantasma3)
 		game.addVisual(puerta)
 		game.addVisual(llave)
-		
-		
 		game.addVisual(personajePrincipal)
-		
-		self.addBonus(3000, bonusRegeneracion)
-		
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimiento(fantasma1,200)
 		config.configurarMovimiento(fantasma2,400)
 		config.configurarMovimiento(fantasma3,300)
+		self.agregarBonus(3000, bonusRegeneracion)
 	}
 	
-	method addBonus(tiempo, bonus) {
+	method agregarBonus(tiempo, bonus) {
 		game.onTick(tiempo, "GenerarBonus" + bonus.toString(), { bonus.aparecer() })	
 	}
-	
 }
 
 
-object nivel3 {  //HABITACIÓN DE ARAÑAS
+object nivel3 {
+				//HABITACIÓN DE ARAÑAS
 	method iniciar(){
-		const arana1 = new Arana 
+		const arana1 = new Arana
 		const arana2 = new Arana (position = game.at(5,6))
 		const arana3 = new Arana (position = game.at(0,3))
 		const puerta = new PuertaSalon (position = game.origin())
-		const llave = new Llave (position = game.at(7,9))
-		
+		const llave  = new Llave (position = game.at(7,9))
 		
 		game.addVisual(visual1)
 		game.addVisual(arana1)
@@ -127,30 +115,26 @@ object nivel3 {  //HABITACIÓN DE ARAÑAS
 		game.addVisual(arana3)
 		game.addVisual(puerta)
 		game.addVisual(llave)
-		//cartel para informar 
-		//game.addVisual(cartelInformativo)
-
-		
 		game.addVisual(personajePrincipal)
 		
-		self.addBonus(5000, bonusHp)
-		self.addBonus(3000, bonusRegeneracion)
+		// TODO: CARTEL PARA INFORMAR TECLA 
+		// TODO: game.addVisual(cartelInformativo)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.configurarMovimiento(arana1,700)
 		config.configurarMovimiento(arana2,700)
 		config.configurarMovimiento(arana3,700)
+		self.agregarBonus(3000, bonusRegeneracion)
+		self.agregarBonus(5000, bonusHp)
 	}
 	
-	method addBonus(tiempo, bonus) {
+	method agregarBonus(tiempo, bonus) {
 		game.onTick(tiempo, "GenerarBonus" + bonus, { bonus.aparecer() })	
 	}
-	
 }
 
-
-
+/************* CONFIGURACIÓN ************/
 
 object config {
 	
@@ -176,13 +160,7 @@ object config {
 	method configurarMovimiento(enemigo, tiempo){
 		game.onTick(tiempo, "MOVIMIENTOS", { enemigo.movete() })
 	}
-	
-
 }
-
-
-
-
 
 /********* COLORES ********/
 

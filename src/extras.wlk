@@ -12,27 +12,25 @@ class Fantasma {
 	method movete(){
    	  	var nuevaX = position.x() + self.pasoAleatorio()
    	  
-   	     nuevaX = nuevaX.max(0).min(game.height() - 1) // esto es para que el fantasma no salga del tablero.
-   	     position = game.at(nuevaX,position.y())
-   	  
+   	    nuevaX = nuevaX.max(0).min(game.height() - 1) // esto es para que el fantasma no salga del tablero.
+   	    position = game.at(nuevaX,position.y())
 	}
 	
 	method chocarCon(personaje){
 		if(!personaje.tieneCapaProtectora()) {
-		susto.reproducir()
-		personaje.estado(asustado)
-		personaje.efectoDeEstado()
+			susto.reproducir()
+			personaje.estado(asustado)
+			personaje.efectoDeEstado()
+		}
 	}
-}
 	
-	method pasoAleatorio() = if ( 0.randomUpTo(2) >= 1 ) 1 else -1
+	method pasoAleatorio() = if ( 0.randomUpTo(3) >= 1 ) 1 else -1
 }
 
 class Zombie {
 	var property position
 	const property image = "Zombie/CharacterZombi.png"
 		
-	
  	method movete(){
 		var nuevaY = position.y() + self.pasoAleatorio()
 		
@@ -45,13 +43,11 @@ class Zombie {
    	    	infeccion.reproducir()
    	    	personaje.estado(infectado)
 			personaje.efectoDeEstado()
-   }
-}
+   		}
+	}
    
    method pasoAleatorio() = if ( 0.randomUpTo(2) >= 1 ) 1 else -1
 }
-
-
 
 class Arana {
 	
@@ -62,20 +58,20 @@ class Arana {
 		if(!personaje.tieneCapaProtectora()) {
 			personaje.estado(paralizado)
 			personaje.efectoDeEstado()
+		}
 	}
-}
 	
 	method movete() {
     	const x = 0.randomUpTo(game.width()).truncate(0)
     	const y = 0.randomUpTo(game.height()).truncate(0)
     
     	position = game.at(x,y)
-	}
+		}
 }
 
 object casaEmbrujada {
 	
-//TODO: Hacer que Ricky aparezca en la posición de la (futura) puerta!
+//TODO: Hacer que Ricky aparezca en la posición de la puerta!
 
 	const property position = game.at(1, 8)
 	const property image = "Casa/CASA EMBRUJADA.png"
@@ -98,15 +94,15 @@ object visual1 {
 	method chocarCon(personaje){}
 }
 
-object visual2{
+object visual2 {
 	const property position = game.origin()
 	const property image = "Fondo/fondoSalon.jpg"
 	
 	method chocarCon(personaje){}
 }
 
-/* 
-object cartelInformativo {
+/*
+TODO: object cartelInformativo {
 	const property position = game.at(12,12)
 	
 	method text () { game.say(self, "Toca la letra Z para volverte invencible")}
@@ -114,7 +110,7 @@ object cartelInformativo {
 	method chocarCon(personaje) {}
 
 }
-
 */
+
 
 

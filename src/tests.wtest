@@ -2,6 +2,7 @@ import personajePrincipal.*
 import extras.*
 import wollok.game.* 
 
+//TODO: TESTs
 //describe "Colisiones"{
 //
 //		test "Colision con Fantasma" {

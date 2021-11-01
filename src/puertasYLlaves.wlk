@@ -15,23 +15,18 @@ class Llave {
 class Puerta{
 	const property position
 	var property estaAbierta = false
+	var property image = if(!estaAbierta) { "Puertas/puertaCerrada1.png" } else { "Puertas/puertaAbierta.png" }
 	
-	method image(){return if(!estaAbierta){"Puertas/puertaCerrada1.png"} else {"Puertas/puertaAbierta.png"}}
+	method chocarCon(personaje) { personaje.abrirPuerta(self) }
 	
-	method chocarCon(personaje){personaje.abrirPuerta(self)}
-	
-	method fueAbierta(){
-		estaAbierta = true
-	}
+	method fueAbierta() { estaAbierta = true }
 	
 }
 class PuertaSalon inherits Puerta{
-	
-	override method chocarCon(personaje){
-		self.irASalaPrincipal()	
-	}
-	override method image(){return if(!estaAbierta){"Puertas/puertaCerrada2.png"} else {"Puertas/puertaAbierta.png"}}
-	
+
+	override method image() { return if(!estaAbierta) { "Puertas/puertaCerrada2.png" } else { "Puertas/puertaAbierta.png" }}
+	override method chocarCon(personaje){ self.irASalaPrincipal() }
+
 	method irASalaPrincipal(){
 		game.clear()
 		salonDeLaCasa.iniciar()
@@ -47,8 +42,7 @@ class PuertaNivel1 inherits Puerta{
 	 method irANivel1(){
 	 	game.clear()
 	 	nivel1.iniciar()
-	 }
-	
+	 }	
 }
 
 class PuertaNivel2 inherits Puerta{
@@ -62,7 +56,6 @@ class PuertaNivel2 inherits Puerta{
 	 	game.clear()
 	 	nivel2.iniciar()
 	 }
-	
 }
 
 class PuertaNivel3 inherits Puerta{
@@ -76,5 +69,4 @@ class PuertaNivel3 inherits Puerta{
 	 	game.clear()
 	 	nivel3.iniciar()
 	 }
-	
 }

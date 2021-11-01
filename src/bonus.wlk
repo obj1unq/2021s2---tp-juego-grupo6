@@ -18,8 +18,7 @@ class Bonus {
 
 object bonusHp inherits Bonus {
 	var property position = game.at(5,7)
-	
-	method image() = "Bonus/bonusHP.png"
+	const property image = "Bonus/bonusHP.png"
 	
 	method chocarCon(personaje){
 		personaje.aplicarBonusHp()
@@ -30,8 +29,7 @@ object bonusHp inherits Bonus {
 
 object bonusRegeneracion inherits Bonus {
 	var property position = game.at(7,9)
-	
-	method image() = "pepita.png" // Cambiar pepita por un bonus
+	const property image = "pepita.png"
 	
 	method chocarCon(personaje) {
 		regeneracion.reproducir()

@@ -4,21 +4,10 @@ import niveles.*
 import estados.*
 
 /********** MOVIMIENTOS ********/
-object derecha {
-	method siguiente(posicion) = posicion.right(1)	
-}
-
-object arriba {
-	method siguiente(posicion) = posicion.up(1)		
-}
-
-object abajo {
-	method siguiente(posicion) = posicion.down(1)
-}
-
-object izquierda{
-	method siguiente(posicion) = posicion.left(1)
-}
+object arriba   { method siguiente(posicion) = posicion.up(1)	 }
+object abajo    { method siguiente(posicion) = posicion.down(1)  }
+object izquierda{ method siguiente(posicion) = posicion.left(1)  }
+object derecha  { method siguiente(posicion) = posicion.right(1) }
 
 object personajePrincipal {
     var property position = game.origin()
@@ -43,11 +32,14 @@ object personajePrincipal {
     
 	method estaParalizado() { return estado == paralizado }
 	
+	method estaEnFinalDeTablero() {
+		return position == game.at(game.height().max(0), game.width() -1)
+	}
+	
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto() or self.estaParalizado()) { self.error("¡Ojalá pudiera!") } }
 	method validarVida()  {if (self.estaMuerto()) { self.terminar() } }
 	method validarLlave(llave) {if (!llavesEncontradas.contains(llave)){self.error("No tengo la llave!")}}
-	
 	method validarAccionDeEfecto() { if (self.tieneCapaProtectora()) {self.error("Soy invencible")} }	
 
 /********** ACCIONES **********/
@@ -70,14 +62,11 @@ object personajePrincipal {
 	
 	method abrirPuerta(puerta){
 		puerta.fueAbierta()
-	}
-	
+	}	
     
 /********** BONUS ********/
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
 	method efectoDeEstado(){ self.validarAccionDeEfecto(); estado.surtirEfecto(self) }
-
-
 }
 
 /********** CARTELES ********/
