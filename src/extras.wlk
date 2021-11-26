@@ -73,7 +73,7 @@ object casaEmbrujada {
 	
 //TODO: Hacer que Ricky aparezca en la posición de la puerta!
 
-	const property position = game.at(1, 8)
+	const property position = game.at(10,5)
 	const property image = "Casa/CASA EMBRUJADA.png"
 	
 	method chocarCon(personaje){
@@ -94,13 +94,20 @@ object visual1 {
 	method chocarCon(personaje){}
 }
 
-object visual2 {
+object visualSalon {
 	const property position = game.origin()
 	const property image = "Fondo/fondoSalon.jpg"
 	
 	method chocarCon(personaje){}
 }
 
+
+object visualArania {
+   const property position = game.origin()
+   const property image = "Fondo/back_cave.png"
+   
+   method chocarCon(personaje){}
+}
 /*
 TODO: object cartelInformativo {
 	const property position = game.at(12,12)

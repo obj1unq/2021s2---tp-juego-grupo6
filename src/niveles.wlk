@@ -10,7 +10,7 @@ object tutorial {
 	method iniciar() {
 		game.addVisual(casaEmbrujada)
 		game.addVisual(personajePrincipal)
-		game.boardGround("silent.jpg")
+		game.boardGround("Fondo/fondo3.png")
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 	}
@@ -19,17 +19,15 @@ object tutorial {
 object salonDeLaCasa {
 						// TODO: AGREGAR MUSICA
 	method iniciar(){
-		const puerta1 = new PuertaNivel1 (position = game.at(1,6))
-		const puerta2 = new PuertaNivel2 (position = game.at(6,6))
-		const puerta3 = new PuertaNivel3 (position = game.at(11,6))
-		const llave1  = new Llave (position = game.at(11,1))
+		const puerta1 = new PuertaZombie (position = game.at(1,6))
+		const puerta2 = new PuertaFantasma (position = game.at(6,6))
+		const puerta3 = new PuertaArania (position = game.at(11,6))
 		
-		game.addVisual(visual2)
+		game.addVisual(visualSalon)
 		game.addVisual(puerta1)
 		game.addVisual(puerta2)
 		game.addVisual(puerta3)
-		game.addVisual(llave1)
-		game.addVisual(personajePrincipal)
+		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
@@ -47,7 +45,8 @@ object nivel1{
 
 	    game.addVisual(visual1)
 	    game.addVisual(puerta)
-		game.addVisual(personajePrincipal)
+		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
+		game.addVisual(llaveFantasma)
 		game.addVisual(zombie1)
 		game.addVisual(zombie2)
 		game.addVisual(zombie3)
@@ -75,16 +74,15 @@ object nivel2 {
 		const fantasma1 = new Fantasma(position = game.at(4,3))
 		const fantasma2 = new Fantasma(position = game.at(8,11))
 		const fantasma3 = new Fantasma(position = game.at(12,7))
-		const llave 	= new Llave (position = game.at(7,9))
 		const puerta    = new PuertaSalon (position = game.origin())
 		
 		game.addVisual(visual1)
 		game.addVisual(fantasma1)
 		game.addVisual(fantasma2)
 		game.addVisual(fantasma3)
+		game.addVisual(llaveArania)
 		game.addVisual(puerta)
-		game.addVisual(llave)
-		game.addVisual(personajePrincipal)
+		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
@@ -107,15 +105,13 @@ object nivel3 {
 		const arana2 = new Arana (position = game.at(5,6))
 		const arana3 = new Arana (position = game.at(0,3))
 		const puerta = new PuertaSalon (position = game.origin())
-		const llave  = new Llave (position = game.at(7,9))
 		
-		game.addVisual(visual1)
+		game.addVisual(visualArania)
 		game.addVisual(arana1)
 		game.addVisual(arana2)
 		game.addVisual(arana3)
 		game.addVisual(puerta)
-		game.addVisual(llave)
-		game.addVisual(personajePrincipal)
+		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		
 		// TODO: CARTEL PARA INFORMAR TECLA 
 		// TODO: game.addVisual(cartelInformativo)

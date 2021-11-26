@@ -32,10 +32,9 @@ class PuertaSalon inherits Puerta{
 		salonDeLaCasa.iniciar()
 	}
 }
-class PuertaNivel1 inherits Puerta{
+class PuertaZombie inherits Puerta{
 	 
 	 override method chocarCon(personaje){
-	// 	personaje.validarLlave(self)
 	 	self.irANivel1()
 	 }
 	 
@@ -45,10 +44,11 @@ class PuertaNivel1 inherits Puerta{
 	 }	
 }
 
-class PuertaNivel2 inherits Puerta{
+class PuertaFantasma inherits Puerta{
+	 const llaveQueLaAbre = llaveFantasma
 	 
 	 override method chocarCon(personaje){
-	 //	personaje.validarLlave(self)
+	 personaje.tieneLaLlave(llaveQueLaAbre)
 	 	self.irANivel2()
 	 }
 	 
@@ -58,10 +58,11 @@ class PuertaNivel2 inherits Puerta{
 	 }
 }
 
-class PuertaNivel3 inherits Puerta{
+class PuertaArania inherits Puerta{
+	 const llaveQueLaAbre = llaveArania 
 	 
 	 override method chocarCon(personaje){
-	 //	personaje.validarLlave(self)
+	    personaje.tieneLaLlave(llaveQueLaAbre)
 	 	self.irANivel3()
 	 }
 	 
@@ -70,3 +71,6 @@ class PuertaNivel3 inherits Puerta{
 	 	nivel3.iniciar()
 	 }
 }
+
+const llaveFantasma = new Llave(position = game.at(12,14))
+const llaveArania = new Llave(position = game.at(11,9))
