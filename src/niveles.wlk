@@ -6,7 +6,7 @@ import puertasYLlaves.*
 
 /************* NIVELES ************/
 
-object tutorial {
+object intro {
 	method iniciar() {
 		game.addVisual(casaEmbrujada)
 		game.addVisual(personajePrincipal)

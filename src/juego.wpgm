@@ -7,7 +7,7 @@ import puertasYLlaves.*
 
 program juego {
 	game.title("Ricky´s Adventures")
-	tutorial.iniciar()
+	intro.iniciar()
 	game.height(15)
 	game.width(15)
 	game.showAttributes(personajePrincipal)
