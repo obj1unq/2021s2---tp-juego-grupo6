@@ -13,7 +13,10 @@
 
 ## Capturas
 
-(agregar)
+![image](https://user-images.githubusercontent.com/89800333/144133795-4e8ee830-c10a-4d1a-8d28-45313f2241a7.png)
+![image](https://user-images.githubusercontent.com/89800333/144133820-5f36adc8-eabc-40ae-aacd-428631f45bc0.png)
+![image](https://user-images.githubusercontent.com/89800333/144133829-013ab2af-dc63-4072-8262-bdbd26cbda2b.png)
+
 
 ## Reglas de Juego / Instrucciones
 - Llegar a la tercer y última puerta en el último nivel, pasando los diferentes desafios que las puertas tienen, tomar la llave y seguir por la siguiente puerta que se presente
