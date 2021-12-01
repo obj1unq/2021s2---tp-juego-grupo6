@@ -3,17 +3,28 @@ import extras.*
 import wollok.game.*
 import bonus.*
 import puertasYLlaves.*
+import sonidos.*
 
 /************* NIVELES ************/
-
+object presentacion {
+	
+	method iniciar(){
+		game.addVisual(visualPresentacion)
+		game.boardGround("Fondo/fondo3.png")
+		config.configuracionPresentacion()
+}
+	
+	
+}
 object intro {
 	method iniciar() {
+		game.addVisual(visualInicio)
 		game.addVisual(casaEmbrujada)
 		game.addVisual(personajePrincipal)
-		game.boardGround("Fondo/fondo3.png")
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
 		config.posicionInicial(personajePrincipal,game.origin())
+		game.showAttributes(personajePrincipal)
 	}
 }	
 
@@ -25,10 +36,10 @@ object salonDeLaCasa {
 		const puerta3 = new PuertaArania (position = game.at(11,6))
 		
 		game.addVisual(visualSalon)
-		game.addVisual(personajePrincipal)
 		game.addVisual(puerta1)
 		game.addVisual(puerta2)
 		game.addVisual(puerta3)
+		game.addVisual(personajePrincipal)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
@@ -48,11 +59,12 @@ object nivel1{
 	    game.addVisual(visual1)
 	    game.addVisual(puerta)
 		game.addVisual(llaveFantasma)
-		game.addVisual(personajePrincipal)
 		game.addVisual(zombie1)
 		game.addVisual(zombie2)
 		game.addVisual(zombie3)
 		game.addVisual(zombie4)
+		game.addVisual(personajePrincipal)
+		game.showAttributes(personajePrincipal)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
@@ -80,12 +92,13 @@ object nivel2 {
 		const puerta    = new PuertaSalon (position = game.origin())
 		
 		game.addVisual(visual1)
-		game.addVisual(personajePrincipal)
 		game.addVisual(fantasma1)
 		game.addVisual(fantasma2)
 		game.addVisual(fantasma3)
 		game.addVisual(llaveArania)
 		game.addVisual(puerta)
+		game.addVisual(personajePrincipal)
+		game.showAttributes(personajePrincipal)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
@@ -116,6 +129,7 @@ object nivel3 {
 		game.addVisual(arana2)
 		game.addVisual(arana3)
 		game.addVisual(puerta)
+		game.showAttributes(personajePrincipal)
 		
 		// TODO: CARTEL PARA INFORMAR TECLA 
 		// TODO: game.addVisual(cartelInformativo)
@@ -149,7 +163,7 @@ object config {
 		keyboard.s().onPressDo( { personajePrincipal.mover(abajo)  	  })
 		keyboard.a().onPressDo( { personajePrincipal.mover(izquierda) })
 		keyboard.d().onPressDo( { personajePrincipal.mover(derecha)   })
-		
+	
 		//Cuando el personaje toca la 'z' se vuelve en 3seg
 		keyboard.z().onPressDo( { personajePrincipal.activarCapaProtectora() })
 	}
@@ -164,6 +178,11 @@ object config {
 	
 	method posicionInicial(objeto,posicion){
 		objeto.position(posicion)
+	}
+	
+	method configuracionPresentacion(){
+		keyboard.enter().onPressDo({ intro.iniciar() })
+		keyboard.space().onPressDo({ visualPresentacion.reproducir() })
 	}
 }
 

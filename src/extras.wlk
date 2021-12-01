@@ -99,9 +99,27 @@ object visualSalon {
 	const property image = "Fondo/fondoSalon.jpg"
 	
 	method chocarCon(personaje){}
+	
+	
 }
 
+object visualInicio {
+	const property position = game.origin()
+	const property image = "Fondo/fondo3.png"
+	
+	method chocarCon(personaje){}
+}
 
+object visualPresentacion{
+	const property position = game.origin()
+	const property image = "Fondo/ricky's.png"
+	
+	method chocarCon(personaje){}
+	
+	method reproducir(){
+		game.sound("Fondo/musicaInicial.mp3").play()
+	}
+}
 object visualArania {
    const property position = game.origin()
    const property image = "Fondo/back_cave.png"

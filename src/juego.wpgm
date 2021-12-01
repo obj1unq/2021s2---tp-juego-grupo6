@@ -4,13 +4,13 @@ import extras.*
 import niveles.*
 import estados.*
 import puertasYLlaves.*
+import sonidos.*
 
 program juego {
 	game.title("Ricky´s Adventures")
-	intro.iniciar()
+	presentacion.iniciar()
 	game.height(15)
 	game.width(15)
-	game.showAttributes(personajePrincipal)
 	game.start()
 }
 
