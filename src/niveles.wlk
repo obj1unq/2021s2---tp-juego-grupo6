@@ -13,6 +13,7 @@ object intro {
 		game.boardGround("Fondo/fondo3.png")
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
+		config.posicionInicial(personajePrincipal,game.origin())
 	}
 }	
 
@@ -24,13 +25,14 @@ object salonDeLaCasa {
 		const puerta3 = new PuertaArania (position = game.at(11,6))
 		
 		game.addVisual(visualSalon)
+		game.addVisual(personajePrincipal)
 		game.addVisual(puerta1)
 		game.addVisual(puerta2)
 		game.addVisual(puerta3)
-		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
+		config.posicionInicial(personajePrincipal,game.origin())
 	}
 }
 
@@ -45,8 +47,8 @@ object nivel1{
 
 	    game.addVisual(visual1)
 	    game.addVisual(puerta)
-		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		game.addVisual(llaveFantasma)
+		game.addVisual(personajePrincipal)
 		game.addVisual(zombie1)
 		game.addVisual(zombie2)
 		game.addVisual(zombie3)
@@ -54,6 +56,7 @@ object nivel1{
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
+		config.posicionInicial(personajePrincipal,game.at(1,0))
 		config.configurarMovimiento(zombie1, 100)
 		config.configurarMovimiento(zombie2, 200)
 		config.configurarMovimiento(zombie3, 400)
@@ -77,15 +80,16 @@ object nivel2 {
 		const puerta    = new PuertaSalon (position = game.origin())
 		
 		game.addVisual(visual1)
+		game.addVisual(personajePrincipal)
 		game.addVisual(fantasma1)
 		game.addVisual(fantasma2)
 		game.addVisual(fantasma3)
 		game.addVisual(llaveArania)
 		game.addVisual(puerta)
-		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
+		config.posicionInicial(personajePrincipal,game.at(1,0))
 		config.configurarMovimiento(fantasma1,200)
 		config.configurarMovimiento(fantasma2,400)
 		config.configurarMovimiento(fantasma3,300)
@@ -107,17 +111,18 @@ object nivel3 {
 		const puerta = new PuertaSalon (position = game.origin())
 		
 		game.addVisual(visualArania)
+		game.addVisual(personajePrincipal)
 		game.addVisual(arana1)
 		game.addVisual(arana2)
 		game.addVisual(arana3)
 		game.addVisual(puerta)
-		game.addVisualCharacterIn(personajePrincipal, game.at(1,0))
 		
 		// TODO: CARTEL PARA INFORMAR TECLA 
 		// TODO: game.addVisual(cartelInformativo)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
+		config.posicionInicial(personajePrincipal,game.at(1,0))
 		config.configurarMovimiento(arana1,700)
 		config.configurarMovimiento(arana2,700)
 		config.configurarMovimiento(arana3,700)
@@ -155,6 +160,10 @@ object config {
 
 	method configurarMovimiento(enemigo, tiempo){
 		game.onTick(tiempo, "MOVIMIENTOS", { enemigo.movete() })
+	}
+	
+	method posicionInicial(objeto,posicion){
+		objeto.position(posicion)
 	}
 }
 

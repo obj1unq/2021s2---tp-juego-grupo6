@@ -10,7 +10,7 @@ object izquierda{ method siguiente(posicion) = posicion.left(1)  }
 object derecha  { method siguiente(posicion) = posicion.right(1) }
 
 object personajePrincipal {
-    var property position = game.origin()
+    var property position
     var property vitalidad = 100
 	var property estado = normal
     var property direccion = derecha
