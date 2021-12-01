@@ -19,8 +19,6 @@ class Puerta{
 	
 	method chocarCon(personaje) { personaje.terminar() }
 	
-	method fueAbierta() { estaAbierta = true }
-	
 }
 class PuertaSalon inherits Puerta{
 
@@ -71,8 +69,5 @@ class PuertaArania inherits Puerta{
 	 	nivel3.iniciar()
 	 }
 }
-	
-	
-
 const llaveFantasma = new Llave(position = game.at(12,14))
 const llaveArania = new Llave(position = game.at(11,9))

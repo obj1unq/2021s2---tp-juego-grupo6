@@ -31,10 +31,7 @@ object personajePrincipal {
     }
     
 	method estaParalizado() { return estado == paralizado }
-	
-	method estaEnFinalDeTablero() {
-		return position == game.at(game.height().max(0), game.width() -1)
-	}
+
 	
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto() or self.estaParalizado()) { self.error("¡Ojalá pudiera!") } }
@@ -57,20 +54,8 @@ object personajePrincipal {
 		llavesEncontradas.add(llave)
 		game.removeVisual(llave)
 	}
-	
-	method abrirPuerta(puerta){
-		puerta.fueAbierta()
-	}	
     
 /********** BONUS ********/
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
 	method efectoDeEstado(){ self.validarAccionDeEfecto(); estado.surtirEfecto(self) }
-}
-
-/********** CARTELES ********/
-object opcionDeSalir {
-	var property position = game.center()
-	var property text = ""
-	
-	method textColor() = colores.rojo()
 }

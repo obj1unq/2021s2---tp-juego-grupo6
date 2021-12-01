@@ -6,7 +6,7 @@ import puertasYLlaves.*
 import sonidos.*
 
 /************* NIVELES ************/
-object presentacion {
+object presentacion { 
 	
 	method iniciar(){
 		game.addVisual(visualPresentacion)
@@ -29,7 +29,7 @@ object intro {
 }	
 
 object salonDeLaCasa {
-						// TODO: AGREGAR MUSICA
+
 	method iniciar(){
 		const puerta1 = new PuertaZombie (position = game.at(1,6))
 		const puerta2 = new PuertaFantasma (position = game.at(6,6))
@@ -133,8 +133,6 @@ object nivel3 {
 		game.showAttributes(personajePrincipal)
 		game.addVisual(puertaFinal)
 		
-		// TODO: CARTEL PARA INFORMAR TECLA 
-		// TODO: game.addVisual(cartelInformativo)
 		
 		config.configuracionDeTeclas()
 		config.configurarColisiones()
@@ -166,7 +164,6 @@ object config {
 		keyboard.a().onPressDo( { personajePrincipal.mover(izquierda) })
 		keyboard.d().onPressDo( { personajePrincipal.mover(derecha)   })
 	
-		//Cuando el personaje toca la 'z' se vuelve en 3seg
 		keyboard.z().onPressDo( { personajePrincipal.activarCapaProtectora() })
 	}
 

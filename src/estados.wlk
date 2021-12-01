@@ -27,18 +27,12 @@ object infectado {
 	 
 }
 
-object paralizado { //cuando choca con la araña se paraliza
+object paralizado {
  	
 	method surtirEfecto(personaje) {
 		game.schedule(5000, {personaje.estado(normal)})
-		// pasa 5 segundos paralizado, y después vuelve a normalidad
 	}
 	
-	method efectoDeBonusHp(personaje) {}
-}
-
-object muerto {
-	method surtirEfecto(personaje)  { game.say(personaje, "memurí") }
 	method efectoDeBonusHp(personaje) {/* POLIMORFISMO */}
 }
 

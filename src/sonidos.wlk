@@ -7,18 +7,6 @@ object regeneracion {
 	}
 }
 
-object otroSonido {
-	method reproducir(){
-		game.sound("").play()
-	}
-}
-
-object otroSonidoMas {
-	method reproducir(){
-		game.sound("").play()
-	}
-}
-
 object susto {
 	method reproducir(){
 		game.sound("Fantasma/sustoDeFantasma.mp3").play()

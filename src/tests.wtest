@@ -63,5 +63,4 @@ describe "Colisiones"{
             assert.throwsException({personajePrincipal.validarAccionDeEfecto()})
         }
         
-        
 }

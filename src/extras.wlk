@@ -70,8 +70,6 @@ class Arana {
 }
 
 object casaEmbrujada {
-	
-//TODO: Hacer que Ricky aparezca en la posición de la puerta!
 
 	const property position = game.at(10,5)
 	const property image = "Casa/CASA EMBRUJADA.png"
@@ -82,7 +80,6 @@ object casaEmbrujada {
 	
 	method irASalaPrincipal(){
 		game.clear()
-		//game.addVisual(visual1)
 		salonDeLaCasa.iniciar()
 	}
 }
@@ -126,16 +123,6 @@ object visualArania {
    
    method chocarCon(personaje){}
 }
-/*
-TODO: object cartelInformativo {
-	const property position = game.at(12,12)
-	
-	method text () { game.say(self, "Toca la letra Z para volverte invencible")}
-	method textColor() {colores.verde()}
-	method chocarCon(personaje) {}
-
-}
-*/
 
 
 
