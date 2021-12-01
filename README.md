@@ -5,6 +5,7 @@
   Arañas, Ricky pasa desapercibido porque la gente de ahí piensa que es un disfraz muy bien elaborado, pero al fin y al cabo, solamente un disfraz. Ricky tiene que llegar al final de la
   casa embrujada para terminar su expedición por la tierra y llevarse un lindo recuerdo de su estadía en otra galaxia
   
+  
 
 ## Equipo de desarrollo
 - Nicolas Farinello
@@ -13,11 +14,11 @@
 - Valentina Reigada
 
 ## Capturas
-
+![image](https://user-images.githubusercontent.com/89757333/144174344-c17b51ce-ca3e-41c2-a35f-8bd15d5f557d.png)
 ![image](https://user-images.githubusercontent.com/89800333/144133795-4e8ee830-c10a-4d1a-8d28-45313f2241a7.png)
 ![image](https://user-images.githubusercontent.com/89800333/144133820-5f36adc8-eabc-40ae-aacd-428631f45bc0.png)
 ![image](https://user-images.githubusercontent.com/89800333/144133829-013ab2af-dc63-4072-8262-bdbd26cbda2b.png)
-![image]()
+
 
 
 ## Reglas de Juego / Instrucciones
