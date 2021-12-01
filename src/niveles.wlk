@@ -122,6 +122,7 @@ object nivel3 {
 		const arana2 = new Arana (position = game.at(5,6))
 		const arana3 = new Arana (position = game.at(0,3))
 		const puerta = new PuertaSalon (position = game.origin())
+		const puertaFinal = new Puerta(position = game.at(12,12), estaAbierta = true)
 		
 		game.addVisual(visualArania)
 		game.addVisual(personajePrincipal)
@@ -130,6 +131,7 @@ object nivel3 {
 		game.addVisual(arana3)
 		game.addVisual(puerta)
 		game.showAttributes(personajePrincipal)
+		game.addVisual(puertaFinal)
 		
 		// TODO: CARTEL PARA INFORMAR TECLA 
 		// TODO: game.addVisual(cartelInformativo)

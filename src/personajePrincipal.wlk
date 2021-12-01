@@ -50,9 +50,7 @@ object personajePrincipal {
 	}
 	
 	method terminar() { 
-		game.addVisual(opcionDeSalir)
-		keyboard.enter().onPressDo({game.stop()})
-		game.schedule(2000, {opcionDeSalir.text("Presione ENTER para salir")})
+		game.stop()
 	}
 	
 	method agregarLlave(llave){

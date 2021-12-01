@@ -1,19 +1,67 @@
 import personajePrincipal.*
 import extras.*
 import wollok.game.* 
+import estados.*
+import puertasYLlaves.*
+import niveles.*
 
-//TODO: TESTs
-//describe "Colisiones"{
-//
-//		test "Colision con Fantasma" {
-		
-//		fantasma.chocarCon(personajePrincipal)
-//		assert.equals(50 , personajePrincipal.vitalidad())
-//	}
+
+
+describe "Colisiones"{
 	
-//		test "Colision con Zombie" {
+      
+        const fantasma1 = new Fantasma(position = game.at(4,3))
+        const zombie1 = new Zombie(position = game.at(2,4))
+        const arana1 = new Arana
+        const llave = new Llave(position = game.at(12,14))
+        
+        method initialize(){
+		   presentacion.iniciar()
+	    }
+        
+        test "Colision con Fantasma" {
+        
+            fantasma1.chocarCon(personajePrincipal)
+            assert.equals(asustado , personajePrincipal.estado())
+        }
+    
+        test "Colision con Zombie" {
 
-//		zombie.chocarCon(personajePrincipal)
-//		assert.equals(95 , personajePrincipal.vitalidad()) // ver por qué vitalidad = 100
-//	}
-//}
+        zombie1.chocarCon(personajePrincipal)
+        assert.equals(infectado, personajePrincipal.estado())
+    }
+        test "Colision con Araña" {
+        
+            arana1.chocarCon(personajePrincipal)
+            assert.equals(paralizado, personajePrincipal.estado())
+        }
+        
+        test "Esta infectado y colisiona con Bonus hp" {
+            fantasma1.chocarCon(personajePrincipal)
+            assert.that(personajePrincipal.estado(asustado))
+            
+            bonusHp.chocarCon(personajePrincipal)
+            assert.that(personajePrincipal.estado(normal))
+        }
+        
+        test "Porcentaje de vida disminuye por colision con fantasma" {
+        	
+        	assert.equals(100,personajePrincipal.vitalidad())
+            fantasma1.chocarCon(personajePrincipal)
+            assert.equals(50,personajePrincipal.vitalidad())
+        }
+        
+        
+        test "cantidad de llaves" {
+        	game.addVisual(llave)
+            personajePrincipal.agregarLlave(llave)
+            assert.equals(#{llave}, personajePrincipal.llavesEncontradas())
+        }
+        
+        test "Validar capa Protectora" {
+            personajePrincipal.tieneCapaProtectora(true)
+            assert.throwsException({personajePrincipal.validarAccionDeEfecto()})
+        }
+        
+        
+}

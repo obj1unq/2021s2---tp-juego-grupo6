@@ -17,7 +17,7 @@ class Puerta{
 	var property estaAbierta = false
 	var property image = if(!estaAbierta) { "Puertas/puertaCerrada1.png" } else { "Puertas/puertaAbierta.png" }
 	
-	method chocarCon(personaje) { personaje.abrirPuerta(self) }
+	method chocarCon(personaje) { personaje.terminar() }
 	
 	method fueAbierta() { estaAbierta = true }
 	
@@ -71,6 +71,8 @@ class PuertaArania inherits Puerta{
 	 	nivel3.iniciar()
 	 }
 }
+	
+	
 
 const llaveFantasma = new Llave(position = game.at(12,14))
 const llaveArania = new Llave(position = game.at(11,9))
