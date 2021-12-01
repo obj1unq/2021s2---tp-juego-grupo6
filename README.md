@@ -4,6 +4,7 @@
   algun que otro personaje de películas. Cuando llega a la tierra, donde primero aterriza es en una casa embrujada, donde se escondían personas disfrazadas de Zombies, Fantasmas y 
   Arañas, Ricky pasa desapercibido porque la gente de ahí piensa que es un disfraz muy bien elaborado, pero al fin y al cabo, solamente un disfraz. Ricky tiene que llegar al final de la
   casa embrujada para terminar su expedición por la tierra y llevarse un lindo recuerdo de su estadía en otra galaxia
+  -Ricky cuenta con varios estados que van variando según los enemigos o bonus que se cruze en su camino!
 
 ## Equipo de desarrollo
 - Nicolas Farinello
@@ -16,6 +17,7 @@
 ![image](https://user-images.githubusercontent.com/89800333/144133795-4e8ee830-c10a-4d1a-8d28-45313f2241a7.png)
 ![image](https://user-images.githubusercontent.com/89800333/144133820-5f36adc8-eabc-40ae-aacd-428631f45bc0.png)
 ![image](https://user-images.githubusercontent.com/89800333/144133829-013ab2af-dc63-4072-8262-bdbd26cbda2b.png)
+![image]()
 
 
 ## Reglas de Juego / Instrucciones
