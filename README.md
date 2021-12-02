@@ -27,4 +27,4 @@
 ## Otros
 
 - Universidad Nacional de Quilmes - Programación con Objetos I
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+- Una vez terminado queremos manternerlo privado

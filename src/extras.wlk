@@ -40,7 +40,7 @@ class Zombie {
   
    method chocarCon(personaje){
    		if(!personaje.tieneCapaProtectora()){
-   	    	infeccion.reproducir()
+  	    	infeccion.reproducir()
    	    	personaje.estado(infectado)
 			personaje.efectoDeEstado()
    		}
@@ -58,6 +58,7 @@ class Arana {
 		if(!personaje.tieneCapaProtectora()) {
 			personaje.estado(paralizado)
 			personaje.efectoDeEstado()
+			//personaje.efectoASufrir(estado)
 		}
 	}
 	

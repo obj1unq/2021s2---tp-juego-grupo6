@@ -27,6 +27,7 @@ object personajePrincipal {
     
     method activarCapaProtectora() {
     	self.tieneCapaProtectora(true)
+    	game.say(self, "¡SOY INVENCIBLE!")
     	game.schedule(3000, {self.tieneCapaProtectora(false)})
     }
     
@@ -36,8 +37,7 @@ object personajePrincipal {
 /********** VALIDACIONES ********/
 	method validarMover() {if (self.estaMuerto() or self.estaParalizado()) { self.error("¡Ojalá pudiera!") } }
 	method validarVida()  {if (self.estaMuerto()) { self.terminar() } }
-	method tieneLaLlave(llave) {if (!llavesEncontradas.contains(llave)){self.error("No tengo la llave!")}}
-	method validarAccionDeEfecto() { if (self.tieneCapaProtectora()) {self.error("Soy invencible")} }	
+	method tieneLaLlave(llave) {if (!llavesEncontradas.contains(llave)){self.error("No tengo la llave!")}}	
 
 /********** ACCIONES **********/
 	method mover(_direccion){ 
@@ -57,5 +57,5 @@ object personajePrincipal {
     
 /********** BONUS ********/
     method aplicarBonusHp(){ estado.efectoDeBonusHp(self) }
-	method efectoDeEstado(){ self.validarAccionDeEfecto(); estado.surtirEfecto(self) }
+	method efectoDeEstado(){ estado.surtirEfecto(self) }
 }
